@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HTML Topics — WebBasics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">WebBasics</a>
+        <nav class="site-nav" aria-label="Primary">
+          <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰</button>
+          <ul id="primary-nav" class="nav-list">
+            <li><a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a class="nav-link active" href="html.html"><i class="fab fa-html5"></i> HTML Topics</a></li>
+            <li><a class="nav-link" href="css.html"><i class="fab fa-css3-alt"></i> CSS Topics</a></li>
+            <li><a class="nav-link" href="javascript.html"><i class="fab fa-js-square"></i> JavaScript Topics</a></li>
+            <li><a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact / About</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button id="themeToggle" class="btn btn-secondary" aria-pressed="false" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+        </div>
+      </div>
+    </header>
+
+    <main class="site-main">
+      <section class="section">
+        <div class="container">
+          <h1>HTML Topics</h1>
+          <p class="lead">Learn the structure of web pages with approachable examples.</p>
+
+          <div class="layout">
+            <aside class="toc" aria-label="Table of contents">
+              <h2>On this page</h2>
+              <nav id="tocNav">
+                <a href="#semantic">Semantic Elements</a>
+                <a href="#headings">Headings</a>
+                <a href="#text-formatting">Text Formatting</a>
+                <a href="#lists">Lists</a>
+                <a href="#links-images">Links & Images</a>
+                <a href="#tables">Tables</a>
+                <a href="#forms">Forms</a>
+                <a href="#media">Media Elements</a>
+                <a href="#html5-elements">HTML5 Elements</a>
+                <a href="#accessibility">Accessibility</a>
+                <a href="#metadata">Metadata</a>
+                <a href="#structure">Document Structure</a>
+              </nav>
+            </aside>
+
+            <div>
+          <!-- Collapsible topic sections will be made interactive via JS later -->
+          <article id="semantic" class="topic">
+            <h2>
+              <button class="collapse-toggle" aria-expanded="true" aria-controls="content-semantic">Semantic Elements</button>
+            </h2>
+            <div id="content-semantic" class="topic-content">
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-semantic"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-semantic"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-semantic"><i class="fas fa-eye"></i> Show Output</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-semantic" class="explanation" aria-hidden="false">
+                    <p>Semantic elements describe their meaning to the browser and developers. They create clear page regions like headers, navigation, main content, sidebars, and footers, which helps accessibility tools and search engines understand your layout.</p>
+                    <ul>
+                      <li><code>&lt;header&gt;</code>: Introductory content, logo, page title</li>
+                      <li><code>&lt;nav&gt;</code>: Primary navigation links</li>
+                      <li><code>&lt;main&gt;</code>: Unique main content of the document</li>
+                      <li><code>&lt;article&gt;</code>: Self-contained composition</li>
+                      <li><code>&lt;section&gt;</code>: Thematic grouping with a heading</li>
+                      <li><code>&lt;aside&gt;</code>: Tangentially related content (sidebar)</li>
+                      <li><code>&lt;footer&gt;</code>: Footer for a section or the page</li>
+                      <li><code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code>: Media with caption</li>
+                    </ul>
+                  </div>
+                  <pre id="code-semantic" class="code" aria-hidden="false"><code class="language-html">&lt;!-- Page header (site identity, nav trigger) --&gt;
+&lt;header&gt;Site header&lt;/header&gt;
+
+&lt;!-- Main navigation landmark --&gt;
+&lt;nav aria-label=&quot;Primary&quot;&gt;Main navigation&lt;/nav&gt;
+
+&lt;!-- Main content landmark (one per page) --&gt;
+&lt;main&gt;
+  &lt;!-- Standalone content block --&gt;
+  &lt;article&gt;
+    &lt;header&gt;&lt;h2&gt;Article title&lt;/h2&gt;&lt;/header&gt;
+    &lt;section&gt;
+      &lt;h3&gt;Section heading&lt;/h3&gt;
+      &lt;p&gt;Section content&lt;/p&gt;
+    &lt;/section&gt;
+    &lt;aside&gt;Related info&lt;/aside&gt;
+    &lt;figure&gt;
+      &lt;img src=&quot;https://via.placeholder.com/300x120&quot; alt=&quot;Placeholder graphic&quot;&gt;
+      &lt;figcaption&gt;An illustrative figure with a caption.&lt;/figcaption&gt;
+    &lt;/figure&gt;
+    &lt;footer&gt;Article footer&lt;/footer&gt;
+  &lt;/article&gt;
+&lt;/main&gt;
+
+&lt;!-- Page footer --&gt;
+&lt;footer&gt;Site footer&lt;/footer&gt;</code></pre>
+                  <div id="preview-semantic" class="preview" aria-hidden="true">
+                    <header>Site header</header>
+                    <nav aria-label="Primary">Main navigation</nav>
+                    <main>
+                      <article>
+                        <header><h2>Article title</h2></header>
+                        <section>
+                          <h3>Section heading</h3>
+                          <p>Section content</p>
+                        </section>
+                        <aside>Related info</aside>
+                        <figure>
+                          <img src="https://via.placeholder.com/300x120" alt="Placeholder graphic">
+                          <figcaption>An illustrative figure with a caption.</figcaption>
+                        </figure>
+                        <footer>Article footer</footer>
+                      </article>
+                    </main>
+                    <footer>Site footer</footer>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="headings" class="topic">
+            <h2>
+              <button class="collapse-toggle" aria-expanded="true" aria-controls="content-headings">Headings</button>
+            </h2>
+            <div id="content-headings" class="topic-content">
+              <p>HTML provides six levels of headings: h1 through h6. Use them to create a clear document outline and hierarchy. Always use headings in order (h1 → h2 → h3, etc.) for accessibility.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-headings"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-headings"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-headings"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-headings" class="explanation" aria-hidden="false">
+                    <h4>Heading Hierarchy:</h4>
+                    <ul>
+                      <li><strong>h1:</strong> Main page title (use only one per page)</li>
+                      <li><strong>h2:</strong> Major sections</li>
+                      <li><strong>h3:</strong> Subsections</li>
+                      <li><strong>h4-h6:</strong> Further subdivisions</li>
+                    </ul>
+                    <h4>Best Practices:</h4>
+                    <ul>
+                      <li>Use headings in logical order</li>
+                      <li>Don't skip heading levels</li>
+                      <li>Use headings for structure, not styling</li>
+                      <li>One h1 per page for SEO</li>
+                    </ul>
+                  </div>
+                  <pre id="code-headings" class="code" aria-hidden="false"><code class="language-html">&lt;!-- Complete heading hierarchy --&gt;
+&lt;h1&gt;Main Page Title&lt;/h1&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;h3&gt;What You'll Learn&lt;/h3&gt;
+&lt;h4&gt;HTML Basics&lt;/h4&gt;
+&lt;h5&gt;Elements and Tags&lt;/h5&gt;
+&lt;h6&gt;Opening and Closing Tags&lt;/h6&gt;
+
+&lt;h2&gt;Getting Started&lt;/h2&gt;
+&lt;h3&gt;Prerequisites&lt;/h3&gt;
+&lt;h3&gt;Installation&lt;/h3&gt;
+
+&lt;h2&gt;Conclusion&lt;/h2&gt;</code></pre>
+                  <div id="preview-headings" class="preview" aria-hidden="true">
+                    <h1>Main Page Title</h1>
+                    <h2>Introduction</h2>
+                    <h3>What You'll Learn</h3>
+                    <h4>HTML Basics</h4>
+                    <h5>Elements and Tags</h5>
+                    <h6>Opening and Closing Tags</h6>
+                    
+                    <h2>Getting Started</h2>
+                    <h3>Prerequisites</h3>
+                    <h3>Installation</h3>
+                    
+                    <h2>Conclusion</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="text-formatting" class="topic">
+            <h2>
+              <button class="collapse-toggle" aria-expanded="false" aria-controls="content-text-formatting">Text Formatting</button>
+            </h2>
+            <div id="content-text-formatting" class="topic-content">
+              <p>HTML provides various elements for formatting and emphasizing text. Use semantic elements for meaning, not just appearance.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-text-formatting"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-text-formatting"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-text-formatting"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-text-formatting" class="explanation" aria-hidden="false">
+                    <h4>Semantic Elements:</h4>
+                    <ul>
+                      <li><strong>&lt;strong&gt;:</strong> Important text (bold)</li>
+                      <li><strong>&lt;em&gt;:</strong> Emphasized text (italic)</li>
+                      <li><strong>&lt;mark&gt;:</strong> Highlighted text</li>
+                      <li><strong>&lt;small&gt;:</strong> Small print</li>
+                      <li><strong>&lt;del&gt;:</strong> Deleted text</li>
+                      <li><strong>&lt;ins&gt;:</strong> Inserted text</li>
+                    </ul>
+                    <h4>Presentational Elements:</h4>
+                    <ul>
+                      <li><strong>&lt;b&gt;:</strong> Bold (no semantic meaning)</li>
+                      <li><strong>&lt;i&gt;:</strong> Italic (no semantic meaning)</li>
+                      <li><strong>&lt;u&gt;:</strong> Underline</li>
+                      <li><strong>&lt;s&gt;:</strong> Strikethrough</li>
+                      <li><strong>&lt;sub&gt;:</strong> Subscript</li>
+                      <li><strong>&lt;sup&gt;:</strong> Superscript</li>
+                    </ul>
+                  </div>
+                  <pre id="code-text-formatting" class="code" aria-hidden="false"><code class="language-html">&lt;!-- Semantic formatting --&gt;
+&lt;p&gt;This is &lt;strong&gt;important&lt;/strong&gt; text.&lt;/p&gt;
+&lt;p&gt;This is &lt;em&gt;emphasized&lt;/em&gt; text.&lt;/p&gt;
+&lt;p&gt;This is &lt;mark&gt;highlighted&lt;/mark&gt; text.&lt;/p&gt;
+&lt;p&gt;&lt;small&gt;This is small print.&lt;/small&gt;&lt;/p&gt;
+&lt;p&gt;Price: &lt;del&gt;$100&lt;/del&gt; &lt;ins&gt;$80&lt;/ins&gt;&lt;/p&gt;
+
+&lt;!-- Presentational formatting --&gt;
+&lt;p&gt;This is &lt;b&gt;bold&lt;/b&gt; text.&lt;/p&gt;
+&lt;p&gt;This is &lt;i&gt;italic&lt;/i&gt; text.&lt;/p&gt;
+&lt;p&gt;This is &lt;u&gt;underlined&lt;/u&gt; text.&lt;/p&gt;
+&lt;p&gt;This is &lt;s&gt;strikethrough&lt;/s&gt; text.&lt;/p&gt;
+&lt;p&gt;H&lt;sub&gt;2&lt;/sub&gt;O (water)&lt;/p&gt;
+&lt;p&gt;E = mc&lt;sup&gt;2&lt;/sup&gt; (Einstein's equation)&lt;/p&gt;
+
+&lt;!-- Blockquotes --&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;"The best way to learn is by doing."&lt;/p&gt;
+  &lt;cite&gt;— Unknown Author&lt;/cite&gt;
+&lt;/blockquote&gt;
+
+&lt;!-- Horizontal rule --&gt;
+&lt;p&gt;Section 1&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Section 2&lt;/p&gt;</code></pre>
+                  <div id="preview-text-formatting" class="preview" aria-hidden="true">
+                    <h4>Semantic Formatting:</h4>
+                    <p>This is <strong>important</strong> text.</p>
+                    <p>This is <em>emphasized</em> text.</p>
+                    <p>This is <mark>highlighted</mark> text.</p>
+                    <p><small>This is small print.</small></p>
+                    <p>Price: <del>$100</del> <ins>$80</ins></p>
+                    
+                    <h4>Presentational Formatting:</h4>
+                    <p>This is <b>bold</b> text.</p>
+                    <p>This is <i>italic</i> text.</p>
+                    <p>This is <u>underlined</u> text.</p>
+                    <p>This is <s>strikethrough</s> text.</p>
+                    <p>H<sub>2</sub>O (water)</p>
+                    <p>E = mc<sup>2</sup> (Einstein's equation)</p>
+                    
+                    <h4>Blockquotes:</h4>
+                    <blockquote>
+                      <p>"The best way to learn is by doing."</p>
+                      <cite>— Unknown Author</cite>
+                    </blockquote>
+                    
+                    <h4>Horizontal Rule:</h4>
+                    <p>Section 1</p>
+                    <hr>
+                    <p>Section 2</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="lists" class="topic">
+            <h2>
+              <button class="collapse-toggle" aria-expanded="false" aria-controls="content-lists">Lists</button>
+            </h2>
+            <div id="content-lists" class="topic-content">
+              <p>HTML provides three types of lists: unordered lists (&lt;ul&gt;) for collections, ordered lists (&lt;ol&gt;) for sequences, and definition lists (&lt;dl&gt;) for term-definition pairs.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-lists"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-lists"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-lists"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-lists" class="explanation" aria-hidden="false">
+                    <h4>List Types:</h4>
+                    <ul>
+                      <li><strong>Unordered Lists (&lt;ul&gt;):</strong> Bullet points for collections</li>
+                      <li><strong>Ordered Lists (&lt;ol&gt;):</strong> Numbered sequences</li>
+                      <li><strong>Definition Lists (&lt;dl&gt;):</strong> Term-definition pairs</li>
+                      <li><strong>Nested Lists:</strong> Lists inside other lists</li>
+                    </ul>
+                    <h4>Attributes:</h4>
+                    <ul>
+                      <li><code>type</code>: Bullet style (ul) or numbering style (ol)</li>
+                      <li><code>start</code>: Starting number for ordered lists</li>
+                      <li><code>reversed</code>: Reverse numbering order</li>
+                    </ul>
+                  </div>
+                  <pre id="code-lists" class="code" aria-hidden="false"><code class="language-html">&lt;!-- Unordered List (bullets) --&gt;
+&lt;ul&gt;
+  &lt;li&gt;Apples&lt;/li&gt;
+  &lt;li&gt;Bananas&lt;/li&gt;
+  &lt;li&gt;Cherries&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Ordered List (numbers) --&gt;
+&lt;ol&gt;
+  &lt;li&gt;First step&lt;/li&gt;
+  &lt;li&gt;Second step&lt;/li&gt;
+  &lt;li&gt;Third step&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- Ordered List with custom start --&gt;
+&lt;ol start="5"&gt;
+  &lt;li&gt;Fifth item&lt;/li&gt;
+  &lt;li&gt;Sixth item&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- Definition List --&gt;
+&lt;dl&gt;
+  &lt;dt&gt;HTML&lt;/dt&gt;
+  &lt;dd&gt;HyperText Markup Language&lt;/dd&gt;
+  &lt;dt&gt;CSS&lt;/dt&gt;
+  &lt;dd&gt;Cascading Style Sheets&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;!-- Nested Lists --&gt;
+&lt;ul&gt;
+  &lt;li&gt;Fruits
+    &lt;ul&gt;
+      &lt;li&gt;Apples&lt;/li&gt;
+      &lt;li&gt;Bananas&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Vegetables
+    &lt;ol&gt;
+      &lt;li&gt;Carrots&lt;/li&gt;
+      &lt;li&gt;Broccoli&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                  <div id="preview-lists" class="preview" aria-hidden="true">
+                    <h4>Unordered List:</h4>
+                    <ul>
+                      <li>Apples</li>
+                      <li>Bananas</li>
+                      <li>Cherries</li>
+                    </ul>
+                    
+                    <h4>Ordered List:</h4>
+                    <ol>
+                      <li>First step</li>
+                      <li>Second step</li>
+                      <li>Third step</li>
+                    </ol>
+                    
+                    <h4>Ordered List (starting from 5):</h4>
+                    <ol start="5">
+                      <li>Fifth item</li>
+                      <li>Sixth item</li>
+                    </ol>
+                    
+                    <h4>Definition List:</h4>
+                    <dl>
+                      <dt>HTML</dt>
+                      <dd>HyperText Markup Language</dd>
+                      <dt>CSS</dt>
+                      <dd>Cascading Style Sheets</dd>
+                    </dl>
+                    
+                    <h4>Nested Lists:</h4>
+                    <ul>
+                      <li>Fruits
+                        <ul>
+                          <li>Apples</li>
+                          <li>Bananas</li>
+                        </ul>
+                      </li>
+                      <li>Vegetables
+                        <ol>
+                          <li>Carrots</li>
+                          <li>Broccoli</li>
+                        </ol>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="tables" class="topic">
+            <h2>
+              <button class="collapse-toggle" aria-expanded="true" aria-controls="content-tables">Tables</button>
+            </h2>
+            <div id="content-tables" class="topic-content">
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-tables"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-tables"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-tables"><i class="fas fa-eye"></i> Show Output</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-tables" class="explanation" aria-hidden="false">
+                    <p>Tables organize data into rows and columns. Use <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, and <code>&lt;tfoot&gt;</code> for structure, and attributes like <code>colspan</code> and <code>rowspan</code> to merge cells.</p>
+                  </div>
+                  <pre id="code-tables" class="code" aria-hidden="false"><code class="language-html">&lt;table&gt;
+  &lt;caption&gt;Quarterly Sales (USD)&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Region&lt;/th&gt;
+      &lt;th colspan=&quot;2&quot;&gt;Q1&lt;/th&gt;
+      &lt;th&gt;Q2&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;/th&gt;
+      &lt;th&gt;Online&lt;/th&gt;
+      &lt;th&gt;Retail&lt;/th&gt;
+      &lt;th&gt;All&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th scope=&quot;row&quot;&gt;North&lt;/th&gt;
+      &lt;td&gt;12,000&lt;/td&gt;
+      &lt;td&gt;9,500&lt;/td&gt;
+      &lt;td rowspan=&quot;2&quot;&gt;21,500&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th scope=&quot;row&quot;&gt;South&lt;/th&gt;
+      &lt;td&gt;8,000&lt;/td&gt;
+      &lt;td&gt;13,500&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;th scope=&quot;row&quot;&gt;Total&lt;/th&gt;
+      &lt;td colspan=&quot;3&quot;&gt;45,000&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+                  <div id="preview-tables" class="preview" aria-hidden="true">
+                    <table>
+                      <caption>Quarterly Sales (USD)</caption>
+                      <thead>
+                        <tr>
+                          <th>Region</th>
+                          <th colspan="2">Q1</th>
+                          <th>Q2</th>
+                        </tr>
+                        <tr>
+                          <th></th>
+                          <th>Online</th>
+                          <th>Retail</th>
+                          <th>All</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">North</th>
+                          <td>12,000</td>
+                          <td>9,500</td>
+                          <td rowspan="2">21,500</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">South</th>
+                          <td>8,000</td>
+                          <td>13,500</td>
+                        </tr>
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <th scope="row">Total</th>
+                          <td colspan="3">45,000</td>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="forms" class="topic">
+            <h2>
+              <button class="collapse-toggle" aria-expanded="true" aria-controls="content-forms">Forms</button>
+            </h2>
+            <div id="content-forms" class="topic-content">
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-forms"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-forms"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-forms"><i class="fas fa-eye"></i> Show Output</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-forms" class="explanation" aria-hidden="false">
+                    <p>Forms collect user input. Always pair inputs with <code>&lt;label&gt;</code> using the <code>for</code> and matching <code>id</code>. Use appropriate <code>type</code> and validation attributes such as <code>required</code>, <code>minlength</code>, and <code>pattern</code>.</p>
+                  </div>
+                  <pre id="code-forms" class="code" aria-hidden="false"><code class="language-html">&lt;form&gt;
+  &lt;!-- Text inputs with labels and placeholders --&gt;
+  &lt;label for=&quot;fullname&quot;&gt;Full name&lt;/label&gt;
+  &lt;input id=&quot;fullname&quot; name=&quot;fullname&quot; type=&quot;text&quot; placeholder=&quot;Ada Lovelace&quot; required&gt;
+
+  &lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;
+  &lt;input id=&quot;email&quot; name=&quot;email&quot; type=&quot;email&quot; placeholder=&quot;you@example.com&quot; required&gt;
+
+  &lt;!-- Radios (choose one) --&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Subscription plan&lt;/legend&gt;
+    &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;plan&quot; value=&quot;basic&quot; checked&gt; Basic&lt;/label&gt;
+    &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;plan&quot; value=&quot;pro&quot;&gt; Pro&lt;/label&gt;
+  &lt;/fieldset&gt;
+
+  &lt;!-- Checkboxes (choose many) --&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Interests&lt;/legend&gt;
+    &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;int&quot; value=&quot;html&quot;&gt; HTML&lt;/label&gt;
+    &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;int&quot; value=&quot;css&quot;&gt; CSS&lt;/label&gt;
+    &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;int&quot; value=&quot;js&quot;&gt; JavaScript&lt;/label&gt;
+  &lt;/fieldset&gt;
+
+  &lt;!-- Select menu --&gt;
+  &lt;label for=&quot;country&quot;&gt;Country&lt;/label&gt;
+  &lt;select id=&quot;country&quot; name=&quot;country&quot; required&gt;
+    &lt;option value=&quot;&quot; disabled selected&gt;Choose...&lt;/option&gt;
+    &lt;option&gt;USA&lt;/option&gt;
+    &lt;option&gt;India&lt;/option&gt;
+  &lt;/select&gt;
+
+  &lt;!-- Pattern and length validation --&gt;
+  &lt;label for=&quot;zip&quot;&gt;ZIP code&lt;/label&gt;
+  &lt;input id=&quot;zip&quot; name=&quot;zip&quot; type=&quot;text&quot; inputmode=&quot;numeric&quot; pattern=&quot;\\d{5}&quot; placeholder=&quot;12345&quot; required&gt;
+
+  &lt;!-- Multiline --&gt;
+  &lt;label for=&quot;msg&quot;&gt;Message&lt;/label&gt;
+  &lt;textarea id=&quot;msg&quot; name=&quot;msg&quot; rows=&quot;3&quot; minlength=&quot;10&quot; placeholder=&quot;Tell us more...&quot;&gt;&lt;/textarea&gt;
+
+  &lt;button type=&quot;submit&quot;&gt;Send&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                  <div id="preview-forms" class="preview" aria-hidden="true">
+                    <form>
+                      <label for="fullname">Full name</label>
+                      <input id="fullname" name="fullname" type="text" placeholder="Ada Lovelace" required>
+                      <label for="email">Email</label>
+                      <input id="email" name="email" type="email" placeholder="you@example.com" required>
+                      <fieldset>
+                        <legend>Subscription plan</legend>
+                        <label><input type="radio" name="plan" value="basic" checked> Basic</label>
+                        <label><input type="radio" name="plan" value="pro"> Pro</label>
+                      </fieldset>
+                      <fieldset>
+                        <legend>Interests</legend>
+                        <label><input type="checkbox" name="int" value="html"> HTML</label>
+                        <label><input type="checkbox" name="int" value="css"> CSS</label>
+                        <label><input type="checkbox" name="int" value="js"> JavaScript</label>
+                      </fieldset>
+                      <label for="country">Country</label>
+                      <select id="country" name="country" required>
+                        <option value="" disabled selected>Choose...</option>
+                        <option>USA</option>
+                        <option>India</option>
+                      </select>
+                      <label for="zip">ZIP code</label>
+                      <input id="zip" name="zip" type="text" inputmode="numeric" pattern="\d{5}" placeholder="12345" required>
+                      <label for="msg">Message</label>
+                      <textarea id="msg" name="msg" rows="3" minlength="10" placeholder="Tell us more..."></textarea>
+                      <button type="submit">Send</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="links-images" class="topic">
+            <h2>
+              <button class="collapse-toggle" aria-expanded="false" aria-controls="content-links">Links & Images</button>
+            </h2>
+            <div id="content-links" class="topic-content">
+              <p>Links connect pages and resources, while images enhance visual content. Always provide meaningful alt text for accessibility.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-links"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-links"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-links"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-links" class="explanation" aria-hidden="false">
+                    <h4>Link Types:</h4>
+                    <ul>
+                      <li><strong>External:</strong> Links to other websites</li>
+                      <li><strong>Internal:</strong> Links within your site</li>
+                      <li><strong>Email:</strong> mailto: links</li>
+                      <li><strong>Phone:</strong> tel: links</li>
+                      <li><strong>Download:</strong> Links to files</li>
+                    </ul>
+                    <h4>Image Best Practices:</h4>
+                    <ul>
+                      <li>Always include <code>alt</code> attribute</li>
+                      <li>Use descriptive alt text</li>
+                      <li>Optimize file sizes</li>
+                      <li>Use appropriate formats (WebP, JPEG, PNG)</li>
+                    </ul>
+                  </div>
+                  <pre id="code-links" class="code" aria-hidden="false"><code class="language-html">&lt;!-- External link --&gt;
+&lt;a href=&quot;https://developer.mozilla.org/&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;Visit MDN&lt;/a&gt;
+
+&lt;!-- Internal link --&gt;
+&lt;a href=&quot;/about.html&quot;&gt;About Us&lt;/a&gt;
+
+&lt;!-- Email link --&gt;
+&lt;a href=&quot;mailto:contact@example.com&quot;&gt;Contact Us&lt;/a&gt;
+
+&lt;!-- Phone link --&gt;
+&lt;a href=&quot;tel:+1234567890&quot;&gt;Call Us&lt;/a&gt;
+
+&lt;!-- Download link --&gt;
+&lt;a href=&quot;document.pdf&quot; download&gt;Download PDF&lt;/a&gt;
+
+&lt;!-- Image with alt text --&gt;
+&lt;img src=&quot;https://via.placeholder.com/300x200&quot; alt=&quot;Beautiful sunset over mountains&quot; width=&quot;300&quot; height=&quot;200&quot;&gt;
+
+&lt;!-- Responsive image --&gt;
+&lt;img src=&quot;https://via.placeholder.com/600x400&quot; alt=&quot;Responsive image&quot; style=&quot;max-width: 100%; height: auto;&quot;&gt;
+
+&lt;!-- Image with caption --&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;https://via.placeholder.com/400x300&quot; alt=&quot;Team photo&quot;&gt;
+  &lt;figcaption&gt;Our development team&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+                  <div id="preview-links" class="preview" aria-hidden="true">
+                    <h4>Links:</h4>
+                    <p><a href="https://developer.mozilla.org/" target="_blank" rel="noreferrer">Visit MDN</a></p>
+                    <p><a href="/about.html">About Us</a></p>
+                    <p><a href="mailto:contact@example.com">Contact Us</a></p>
+                    <p><a href="tel:+1234567890">Call Us</a></p>
+                    <p><a href="document.pdf" download>Download PDF</a></p>
+                    
+                    <h4>Images:</h4>
+                    <img src="https://via.placeholder.com/300x200" alt="Beautiful sunset over mountains" width="300" height="200">
+                    
+                    <h4>Responsive Image:</h4>
+                    <img src="https://via.placeholder.com/600x400" alt="Responsive image" style="max-width: 100%; height: auto;">
+                    
+                    <h4>Image with Caption:</h4>
+                    <figure>
+                      <img src="https://via.placeholder.com/400x300" alt="Team photo">
+                      <figcaption>Our development team</figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="metadata" class="topic">
+            <h2>
+              <button class="collapse-toggle" aria-expanded="true" aria-controls="content-metadata">Metadata</button>
+            </h2>
+            <div id="content-metadata" class="topic-content">
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-metadata"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-metadata"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-metadata"><i class="fas fa-eye"></i> Show Output</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-metadata" class="explanation" aria-hidden="false">
+                    <p>The <code>&lt;head&gt;</code> contains metadata about the document: character set, viewport for responsive design, the title, and links to styles or scripts. Proper metadata ensures correct rendering and SEO.</p>
+                  </div>
+                  <pre id="code-metadata" class="code" aria-hidden="false"><code class="language-html">&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt; &lt;!-- Unicode characters --&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt; &lt;!-- Mobile scaling --&gt;
+  &lt;meta name=&quot;description&quot; content=&quot;Beginner HTML metadata example&quot;&gt; &lt;!-- SEO description --&gt;
+  &lt;title&gt;My Page&lt;/title&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;
+  &lt;link rel=&quot;icon&quot; href=&quot;/favicon.ico&quot;&gt;
+&lt;/head&gt;</code></pre>
+                  <div id="preview-metadata" class="preview" aria-hidden="true">
+                    <div>Metadata is not directly visible; view page source to see &lt;head&gt; tags.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="structure" class="topic">
+            <h2>
+              <button class="collapse-toggle" aria-expanded="false" aria-controls="content-structure">Document Structure</button>
+            </h2>
+            <div id="content-structure" class="topic-content">
+              <p>Every HTML document follows a specific structure. Understanding this foundation is crucial for creating well-formed web pages.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-structure"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-structure"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-structure"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-structure" class="explanation" aria-hidden="false">
+                    <h4>Document Structure Components:</h4>
+                    <ul>
+                      <li><strong>&lt;!DOCTYPE html&gt;:</strong> Declares HTML5 document type</li>
+                      <li><strong>&lt;html&gt;:</strong> Root element containing all content</li>
+                      <li><strong>&lt;head&gt;:</strong> Metadata not displayed on page</li>
+                      <li><strong>&lt;body&gt;:</strong> Visible page content</li>
+                    </ul>
+                    <h4>Essential Head Elements:</h4>
+                    <ul>
+                      <li><code>&lt;meta charset="utf-8"&gt;</code>: Character encoding</li>
+                      <li><code>&lt;meta name="viewport"&gt;</code>: Mobile responsiveness</li>
+                      <li><code>&lt;title&gt;</code>: Browser tab title</li>
+                      <li><code>&lt;link&gt;</code>: External resources (CSS)</li>
+                    </ul>
+                  </div>
+                  <pre id="code-structure" class="code" aria-hidden="false"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;title&gt;My Web Page&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;
+      &lt;h1&gt;Welcome to My Site&lt;/h1&gt;
+    &lt;/header&gt;
+    &lt;main&gt;
+      &lt;p&gt;This is the main content of my page.&lt;/p&gt;
+    &lt;/main&gt;
+    &lt;footer&gt;
+      &lt;p&gt;&copy; 2024 My Website&lt;/p&gt;
+    &lt;/footer&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                  <div id="preview-structure" class="preview" aria-hidden="true">
+                    <div style="border: 1px solid #ccc; padding: 15px;">
+                      <header style="background: #f0f0f0; padding: 10px; margin-bottom: 10px;">
+                        <h1 style="margin: 0;">Welcome to My Site</h1>
+                      </header>
+                      <main style="padding: 10px;">
+                        <p>This is the main content of my page.</p>
+                      </main>
+                      <footer style="background: #f0f0f0; padding: 10px; margin-top: 10px;">
+                        <p style="margin: 0;">© 2024 My Website</p>
+                      </footer>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="media" class="topic">
+            <h2>
+              <button class="collapse-toggle" aria-expanded="false" aria-controls="content-media">Media Elements</button>
+            </h2>
+            <div id="content-media" class="topic-content">
+              <p>HTML provides elements for embedding various types of media: images, audio, video, and external content via iframes.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-media"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-media"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-media"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-media" class="explanation" aria-hidden="false">
+                    <h4>Media Elements:</h4>
+                    <ul>
+                      <li><strong>&lt;img&gt;:</strong> Images with alt text for accessibility</li>
+                      <li><strong>&lt;audio&gt;:</strong> Audio files with controls</li>
+                      <li><strong>&lt;video&gt;:</strong> Video files with controls</li>
+                      <li><strong>&lt;iframe&gt;:</strong> Embed external content</li>
+                      <li><strong>&lt;canvas&gt;:</strong> Draw graphics with JavaScript</li>
+                    </ul>
+                    <h4>Important Attributes:</h4>
+                    <ul>
+                      <li><code>alt</code>: Alternative text for images</li>
+                      <li><code>controls</code>: Show media controls</li>
+                      <li><code>autoplay</code>: Start playing automatically</li>
+                      <li><code>loop</code>: Repeat media</li>
+                      <li><code>src</code>: Media source URL</li>
+                    </ul>
+                  </div>
+                  <pre id="code-media" class="code" aria-hidden="false"><code class="language-html">&lt;!-- Images --&gt;
+&lt;img src=&quot;https://via.placeholder.com/300x200&quot; alt=&quot;Sample image&quot; width=&quot;300&quot; height=&quot;200&quot;&gt;
+
+&lt;!-- Responsive image --&gt;
+&lt;img src=&quot;https://via.placeholder.com/600x400&quot; alt=&quot;Responsive image&quot; style=&quot;max-width: 100%; height: auto;&quot;&gt;
+
+&lt;!-- Audio --&gt;
+&lt;audio controls&gt;
+  &lt;source src=&quot;audio.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+  &lt;source src=&quot;audio.ogg&quot; type=&quot;audio/ogg&quot;&gt;
+  Your browser does not support the audio element.
+&lt;/audio&gt;
+
+&lt;!-- Video --&gt;
+&lt;video controls width=&quot;400&quot;&gt;
+  &lt;source src=&quot;video.mp4&quot; type=&quot;video/mp4&quot;&gt;
+  &lt;source src=&quot;video.webm&quot; type=&quot;video/webm&quot;&gt;
+  Your browser does not support the video element.
+&lt;/video&gt;
+
+&lt;!-- YouTube Embed --&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/dQw4w9WgXcQ&quot; 
+        title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; 
+        allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; 
+        allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;!-- Canvas --&gt;
+&lt;canvas id=&quot;myCanvas&quot; width=&quot;200&quot; height=&quot;100&quot; style=&quot;border:1px solid #000;&quot;&gt;&lt;/canvas&gt;</code></pre>
+                  <div id="preview-media" class="preview" aria-hidden="true">
+                    <h4>Images:</h4>
+                    <img src="https://via.placeholder.com/300x200" alt="Sample image" width="300" height="200">
+                    
+                    <h4>Responsive Image:</h4>
+                    <img src="https://via.placeholder.com/600x400" alt="Responsive image" style="max-width: 100%; height: auto;">
+                    
+                    <h4>Audio (placeholder):</h4>
+                    <div style="border: 1px dashed #ccc; padding: 20px; text-align: center;">
+                      Audio controls would appear here
+                    </div>
+                    
+                    <h4>Video (placeholder):</h4>
+                    <div style="border: 1px dashed #ccc; padding: 20px; text-align: center;">
+                      Video controls would appear here
+                    </div>
+                    
+                    <h4>Canvas:</h4>
+                    <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000;"></canvas>
+                    <script>
+                      const canvas = document.getElementById('myCanvas');
+                      const ctx = canvas.getContext('2d');
+                      ctx.fillStyle = '#4CAF50';
+                      ctx.fillRect(10, 10, 50, 50);
+                      ctx.fillStyle = '#2196F3';
+                      ctx.fillRect(70, 10, 50, 50);
+                      ctx.fillStyle = '#FF9800';
+                      ctx.fillRect(130, 10, 50, 50);
+                    </script>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="html5-elements" class="topic">
+            <h2>
+              <button class="collapse-toggle" aria-expanded="false" aria-controls="content-html5-elements">HTML5 Elements</button>
+            </h2>
+            <div id="content-html5-elements" class="topic-content">
+              <p>HTML5 introduced many new semantic elements that provide better structure and meaning to web pages.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-html5"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-html5"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-html5"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-html5" class="explanation" aria-hidden="false">
+                    <h4>New HTML5 Elements:</h4>
+                    <ul>
+                      <li><strong>&lt;article&gt;:</strong> Self-contained content</li>
+                      <li><strong>&lt;section&gt;:</strong> Thematic grouping</li>
+                      <li><strong>&lt;aside&gt;:</strong> Sidebar content</li>
+                      <li><strong>&lt;nav&gt;:</strong> Navigation links</li>
+                      <li><strong>&lt;header&gt;:</strong> Page/section header</li>
+                      <li><strong>&lt;footer&gt;:</strong> Page/section footer</li>
+                      <li><strong>&lt;main&gt;:</strong> Main content area</li>
+                      <li><strong>&lt;time&gt;:</strong> Date/time information</li>
+                      <li><strong>&lt;progress&gt;:</strong> Progress indicator</li>
+                      <li><strong>&lt;meter&gt;:</strong> Scalar measurement</li>
+                    </ul>
+                  </div>
+                  <pre id="code-html5" class="code" aria-hidden="false"><code class="language-html">&lt;!-- HTML5 semantic structure --&gt;
+&lt;header&gt;
+  &lt;h1&gt;Website Title&lt;/h1&gt;
+  &lt;nav&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+  &lt;article&gt;
+    &lt;header&gt;
+      &lt;h2&gt;Article Title&lt;/h2&gt;
+      &lt;p&gt;Published on &lt;time datetime=&quot;2024-01-15&quot;&gt;January 15, 2024&lt;/time&gt;&lt;/p&gt;
+    &lt;/header&gt;
+    
+    &lt;section&gt;
+      &lt;h3&gt;Introduction&lt;/h3&gt;
+      &lt;p&gt;This is the introduction section.&lt;/p&gt;
+    &lt;/section&gt;
+    
+    &lt;section&gt;
+      &lt;h3&gt;Progress&lt;/h3&gt;
+      &lt;p&gt;Learning progress: &lt;progress value=&quot;75&quot; max=&quot;100&quot;&gt;75%&lt;/progress&gt;&lt;/p&gt;
+      &lt;p&gt;Storage used: &lt;meter value=&quot;6&quot; min=&quot;0&quot; max=&quot;10&quot;&gt;6GB&lt;/meter&gt;&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/article&gt;
+  
+  &lt;aside&gt;
+    &lt;h3&gt;Related Links&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Related Article 1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Related Article 2&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/aside&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+  &lt;p&gt;&copy; 2024 Website Name. All rights reserved.&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+                  <div id="preview-html5" class="preview" aria-hidden="true">
+                    <header style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+                      <h1 style="margin: 0;">Website Title</h1>
+                      <nav>
+                        <ul style="list-style: none; padding: 0; margin: 5px 0 0 0;">
+                          <li style="display: inline; margin-right: 10px;"><a href="#">Home</a></li>
+                          <li style="display: inline;"><a href="#">About</a></li>
+                        </ul>
+                      </nav>
+                    </header>
+                    
+                    <main style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+                      <article>
+                        <header>
+                          <h2 style="margin: 0;">Article Title</h2>
+                          <p style="margin: 5px 0;">Published on <time datetime="2024-01-15">January 15, 2024</time></p>
+                        </header>
+                        
+                        <section>
+                          <h3>Introduction</h3>
+                          <p>This is the introduction section.</p>
+                        </section>
+                        
+                        <section>
+                          <h3>Progress</h3>
+                          <p>Learning progress: <progress value="75" max="100">75%</progress></p>
+                          <p>Storage used: <meter value="6" min="0" max="10">6GB</meter></p>
+                        </section>
+                      </article>
+                      
+                      <aside style="border-left: 2px solid #ccc; padding-left: 10px; margin-top: 10px;">
+                        <h3>Related Links</h3>
+                        <ul>
+                          <li><a href="#">Related Article 1</a></li>
+                          <li><a href="#">Related Article 2</a></li>
+                        </ul>
+                      </aside>
+                    </main>
+                    
+                    <footer style="border: 1px solid #ccc; padding: 10px;">
+                      <p style="margin: 0;">© 2024 Website Name. All rights reserved.</p>
+                    </footer>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="accessibility" class="topic">
+            <h2>
+              <button class="collapse-toggle" aria-expanded="false" aria-controls="content-accessibility">Accessibility</button>
+            </h2>
+            <div id="content-accessibility" class="topic-content">
+              <p>Accessibility (a11y) ensures content is usable by everyone. Provide text alternatives, keyboard navigation, and ARIA attributes where necessary. Prefer semantic elements over ARIA when possible.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-a11y"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-a11y"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-a11y"><i class="fas fa-eye"></i> Show Output</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-a11y" class="explanation" aria-hidden="false">
+                    <h4>Accessibility Principles:</h4>
+                    <ul>
+                      <li><strong>Alt text:</strong> Describe images for screen readers</li>
+                      <li><strong>Semantic HTML:</strong> Use proper elements</li>
+                      <li><strong>Keyboard navigation:</strong> Ensure tab order</li>
+                      <li><strong>ARIA labels:</strong> Provide context</li>
+                      <li><strong>Color contrast:</strong> Ensure readability</li>
+                    </ul>
+                  </div>
+                  <pre id="code-a11y" class="code" aria-hidden="false"><code class="language-html">&lt;!-- Breadcrumb navigation --&gt;
+&lt;nav aria-label=&quot;Breadcrumb&quot;&gt;
+  &lt;ol&gt;
+    &lt;li&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li aria-current=&quot;page&quot;&gt;Docs&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;
+
+&lt;!-- Accessible image --&gt;
+&lt;img src=&quot;team.jpg&quot; alt=&quot;Our team standing in front of the office&quot;&gt;
+
+&lt;!-- Accessible button --&gt;
+&lt;button aria-pressed=&quot;false&quot; aria-label=&quot;Toggle favorite&quot;&gt;☆&lt;/button&gt;
+
+&lt;!-- Form with labels --&gt;
+&lt;label for=&quot;username&quot;&gt;Username:&lt;/label&gt;
+&lt;input id=&quot;username&quot; type=&quot;text&quot; aria-describedby=&quot;username-help&quot;&gt;
+&lt;div id=&quot;username-help&quot;&gt;Enter your username&lt;/div&gt;</code></pre>
+                  <div id="preview-a11y" class="preview" aria-hidden="true">
+                    <h4>Breadcrumb Navigation:</h4>
+                    <nav aria-label="Breadcrumb">
+                      <ol>
+                        <li><a href="/">Home</a></li>
+                        <li aria-current="page">Docs</li>
+                      </ol>
+                    </nav>
+                    
+                    <h4>Accessible Image:</h4>
+                    <img src="https://via.placeholder.com/180x100" alt="Our team standing in front of the office">
+                    
+                    <h4>Accessible Button:</h4>
+                    <button aria-pressed="false" aria-label="Toggle favorite">☆</button>
+                    
+                    <h4>Form with Labels:</h4>
+                    <label for="username">Username:</label>
+                    <input id="username" type="text" aria-describedby="username-help">
+                    <div id="username-help">Enter your username</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+            <nav class="topic-nav-bottom" aria-label="Topic pagination">
+              <a class="btn btn-outline" href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+              <a class="btn btn-outline" href="css.html">CSS Topics <i class="fas fa-arrow-right"></i></a>
+            </nav>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p><i class="fas fa-code"></i> © <span id="year"></span> WebBasics</p>
+      </div>
+    </footer>
+
+    <script src="./js/main.js" defer></script>
+  </body>
+  </html>
+
+

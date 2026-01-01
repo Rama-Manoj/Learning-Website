@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaScript Topics — WebBasics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">WebBasics</a>
+        <nav class="site-nav" aria-label="Primary">
+          <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰</button>
+          <ul id="primary-nav" class="nav-list">
+            <li><a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a class="nav-link" href="html.html"><i class="fab fa-html5"></i> HTML Topics</a></li>
+            <li><a class="nav-link" href="css.html"><i class="fab fa-css3-alt"></i> CSS Topics</a></li>
+            <li><a class="nav-link active" href="javascript.html"><i class="fab fa-js-square"></i> JavaScript Topics</a></li>
+            <li><a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact / About</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button id="themeToggle" class="btn btn-secondary" aria-pressed="false" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+        </div>
+      </div>
+    </header>
+
+    <main class="site-main">
+      <section class="section">
+          <div class="container">
+          <h1>JavaScript Topics</h1>
+          <p class="lead">Make your pages dynamic with JavaScript.</p>
+
+          <div class="layout">
+            <aside class="toc" aria-label="Table of contents">
+              <h2>On this page</h2>
+              <nav id="tocNav">
+                <a href="#variables">Variables</a>
+                <a href="#functions">Functions</a>
+                <a href="#dom">DOM Manipulation</a>
+                <a href="#events">Events</a>
+                <a href="#arrays">Arrays</a>
+                <a href="#loops">Loops</a>
+                <a href="#conditions">Conditions</a>
+                <a href="#objects">Objects</a>
+                <a href="#async">Async/Await</a>
+                <a href="#error-handling">Error Handling</a>
+                <a href="#modules">Modules</a>
+              </nav>
+            </aside>
+
+            <div>
+
+          <article id="variables" class="topic">
+            <h2><button class="collapse-toggle" aria-expanded="true" aria-controls="content-variables">Variables</button></h2>
+            <div id="content-variables" class="topic-content">
+              <p>Variables store data that can be used and modified throughout your JavaScript code. Understanding variable declarations is fundamental to JavaScript programming.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-variables"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-variables"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-variables"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-variables" class="explanation" aria-hidden="false">
+                    <h4>Variable Declaration Types:</h4>
+                    <ul>
+                      <li><strong>const:</strong> Cannot be reassigned (preferred)</li>
+                      <li><strong>let:</strong> Block-scoped, can be reassigned</li>
+                      <li><strong>var:</strong> Function-scoped, avoid in modern code</li>
+                    </ul>
+                    <h4>Data Types:</h4>
+                    <ul>
+                      <li><strong>Primitives:</strong> string, number, boolean, undefined, null, symbol</li>
+                      <li><strong>Objects:</strong> arrays, functions, objects</li>
+                    </ul>
+                    <h4>Best Practices:</h4>
+                    <ul>
+                      <li>Use <code>const</code> by default</li>
+                      <li>Use <code>let</code> when reassignment is needed</li>
+                      <li>Avoid <code>var</code></li>
+                      <li>Use descriptive variable names</li>
+                    </ul>
+                  </div>
+                  <pre id="code-variables" class="code" aria-hidden="false"><code class="language-javascript">// Variable declarations
+const greeting = 'Hello';
+let name = 'Ada';
+const message = `${greeting}, ${name}!`;
+
+// Different data types
+const age = 25;                    // number
+const isStudent = true;            // boolean
+const hobbies = ['reading', 'coding']; // array
+const person = {                   // object
+  name: 'Alice',
+  age: 30
+};
+
+// Template literals (string interpolation)
+const info = `Name: ${person.name}, Age: ${person.age}`;
+
+// Variable reassignment (only with let)
+let counter = 0;
+counter = counter + 1;
+
+// Block scope example
+if (true) {
+  const blockScoped = 'I exist only in this block';
+  let alsoBlockScoped = 'Me too';
+}
+// blockScoped and alsoBlockScoped are not accessible here</code></pre>
+                  <div id="preview-variables" class="preview" aria-hidden="true">
+                    <div id="variables-demo">
+                      <h4>Variable Examples:</h4>
+                      <p id="greeting-output"></p>
+                      <p id="data-types-output"></p>
+                      <p id="template-output"></p>
+                      <button onclick="incrementCounter()">Increment Counter: <span id="counter">0</span></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="functions" class="topic">
+            <h2><button class="collapse-toggle" aria-expanded="true" aria-controls="content-functions">Functions</button></h2>
+            <div id="content-functions" class="topic-content">
+              <p>Functions are reusable blocks of code that perform specific tasks. They help organize code and avoid repetition.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-functions"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-functions"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-functions"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-functions" class="explanation" aria-hidden="false">
+                    <h4>Function Types:</h4>
+                    <ul>
+                      <li><strong>Function Declaration:</strong> <code>function name() {}</code></li>
+                      <li><strong>Function Expression:</strong> <code>const name = function() {}</code></li>
+                      <li><strong>Arrow Function:</strong> <code>const name = () => {}</code></li>
+                    </ul>
+                    <h4>Key Concepts:</h4>
+                    <ul>
+                      <li><strong>Parameters:</strong> Input values for the function</li>
+                      <li><strong>Return:</strong> Output value from the function</li>
+                      <li><strong>Scope:</strong> Where variables are accessible</li>
+                      <li><strong>Hoisting:</strong> Function declarations are hoisted</li>
+                    </ul>
+                    <h4>Arrow Functions:</h4>
+                    <ul>
+                      <li>Shorter syntax</li>
+                      <li>No own <code>this</code> binding</li>
+                      <li>Implicit return for single expressions</li>
+                    </ul>
+                  </div>
+                  <pre id="code-functions" class="code" aria-hidden="false"><code class="language-javascript">// Function Declaration
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+// Function Expression
+const add = function(a, b) {
+  return a + b;
+};
+
+// Arrow Function
+const multiply = (a, b) => a * b;
+
+// Arrow function with block body
+const divide = (a, b) => {
+  if (b === 0) {
+    return 'Cannot divide by zero';
+  }
+  return a / b;
+};
+
+// Function with default parameters
+function createUser(name, age = 18, isActive = true) {
+  return {
+    name,
+    age,
+    isActive,
+    greet: () => `Hi, I'm ${name}`
+  };
+}
+
+// Higher-order function (takes function as parameter)
+function processNumbers(numbers, operation) {
+  return numbers.map(operation);
+}
+
+// Usage examples
+const numbers = [1, 2, 3, 4, 5];
+const doubled = processNumbers(numbers, x => x * 2);
+const squared = processNumbers(numbers, x => x * x);
+
+// Callback function
+setTimeout(() => {
+  console.log('This runs after 1 second');
+}, 1000);</code></pre>
+                  <div id="preview-functions" class="preview" aria-hidden="true">
+                    <div id="functions-demo">
+                      <h4>Function Examples:</h4>
+                      <button onclick="demoGreet()">Greet Function</button>
+                      <button onclick="demoMath()">Math Functions</button>
+                      <button onclick="demoUser()">Create User</button>
+                      <button onclick="demoArray()">Process Array</button>
+                      <div id="function-output"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="dom" class="topic">
+            <h2><button class="collapse-toggle" aria-expanded="true" aria-controls="content-dom">DOM Manipulation</button></h2>
+            <div id="content-dom" class="topic-content">
+              <p>The Document Object Model (DOM) allows JavaScript to interact with HTML elements, modify content, attributes, and styles dynamically.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-dom"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-dom"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-dom"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-dom" class="explanation" aria-hidden="false">
+                    <h4>Element Selection:</h4>
+                    <ul>
+                      <li><code>document.getElementById()</code>: Select by ID</li>
+                      <li><code>document.querySelector()</code>: CSS selector</li>
+                      <li><code>document.querySelectorAll()</code>: Multiple elements</li>
+                      <li><code>document.getElementsByClassName()</code>: By class</li>
+                    </ul>
+                    <h4>Content Manipulation:</h4>
+                    <ul>
+                      <li><code>textContent</code>: Text content only</li>
+                      <li><code>innerHTML</code>: HTML content</li>
+                      <li><code>innerText</code>: Visible text</li>
+                    </ul>
+                    <h4>Attribute & Style:</h4>
+                    <ul>
+                      <li><code>setAttribute()</code>, <code>getAttribute()</code></li>
+                      <li><code>style.property</code>: Inline styles</li>
+                      <li><code>classList</code>: CSS classes</li>
+                    </ul>
+                  </div>
+                  <pre id="code-dom" class="code" aria-hidden="false"><code class="language-javascript">// Element selection
+const element = document.getElementById('myElement');
+const elements = document.querySelectorAll('.my-class');
+const firstDiv = document.querySelector('div');
+
+// Content manipulation
+element.textContent = 'New text content';
+element.innerHTML = '<strong>Bold text</strong>';
+element.innerText = 'Visible text only';
+
+// Attribute manipulation
+element.setAttribute('data-id', '123');
+element.setAttribute('class', 'new-class');
+const id = element.getAttribute('data-id');
+
+// Style manipulation
+element.style.color = 'red';
+element.style.fontSize = '20px';
+element.style.backgroundColor = '#f0f0f0';
+
+// Class manipulation
+element.classList.add('active');
+element.classList.remove('inactive');
+element.classList.toggle('visible');
+element.classList.contains('active'); // returns boolean
+
+// Creating elements
+const newDiv = document.createElement('div');
+newDiv.textContent = 'New element';
+newDiv.className = 'new-element';
+
+// Adding to DOM
+element.appendChild(newDiv);
+element.insertBefore(newDiv, element.firstChild);
+
+// Removing elements
+element.removeChild(newDiv);
+newDiv.remove(); // Modern way
+
+// Event handling
+element.addEventListener('click', function(event) {
+  console.log('Element clicked!');
+  event.target.style.color = 'blue';
+});
+
+// Form handling
+const form = document.querySelector('form');
+const input = document.querySelector('input[type="text"]');
+const value = input.value; // Get input value
+input.value = 'New value'; // Set input value</code></pre>
+                  <div id="preview-dom" class="preview" aria-hidden="true">
+                    <div id="dom-demo">
+                      <h4>DOM Manipulation Demo:</h4>
+                      <div id="demo-element" style="padding: 10px; border: 1px solid #ccc; margin: 10px 0;">
+                        Original content
+                      </div>
+                      <button onclick="changeContent()">Change Content</button>
+                      <button onclick="changeStyle()">Change Style</button>
+                      <button onclick="addClass()">Add Class</button>
+                      <button onclick="createElement()">Create Element</button>
+                      <div id="new-elements"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="events" class="topic">
+            <h2><button class="collapse-toggle" aria-expanded="true" aria-controls="content-events">Events</button></h2>
+            <div id="content-events" class="topic-content">
+              <p>Events allow JavaScript to respond to user interactions and browser actions, making web pages interactive and dynamic.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-events"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-events"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-events"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-events" class="explanation" aria-hidden="false">
+                    <h4>Common Event Types:</h4>
+                    <ul>
+                      <li><strong>Mouse:</strong> click, dblclick, mouseover, mouseout</li>
+                      <li><strong>Keyboard:</strong> keydown, keyup, keypress</li>
+                      <li><strong>Form:</strong> submit, change, input, focus, blur</li>
+                      <li><strong>Window:</strong> load, resize, scroll</li>
+                    </ul>
+                    <h4>Event Handling:</h4>
+                    <ul>
+                      <li><code>addEventListener()</code>: Modern way to add events</li>
+                      <li><code>removeEventListener()</code>: Remove event listeners</li>
+                      <li><code>event.preventDefault()</code>: Prevent default behavior</li>
+                      <li><code>event.stopPropagation()</code>: Stop event bubbling</li>
+                    </ul>
+                    <h4>Event Object:</h4>
+                    <ul>
+                      <li><code>event.target</code>: Element that triggered event</li>
+                      <li><code>event.type</code>: Type of event</li>
+                      <li><code>event.key</code>: Key pressed (keyboard events)</li>
+                    </ul>
+                  </div>
+                  <pre id="code-events" class="code" aria-hidden="false"><code class="language-javascript">// Basic event listener
+const button = document.getElementById('myButton');
+button.addEventListener('click', function(event) {
+  console.log('Button clicked!');
+  console.log('Event type:', event.type);
+  console.log('Target element:', event.target);
+});
+
+// Mouse events
+const element = document.getElementById('myElement');
+element.addEventListener('mouseover', function() {
+  this.style.backgroundColor = 'lightblue';
+});
+
+element.addEventListener('mouseout', function() {
+  this.style.backgroundColor = 'white';
+});
+
+// Keyboard events
+document.addEventListener('keydown', function(event) {
+  console.log('Key pressed:', event.key);
+  console.log('Key code:', event.keyCode);
+  
+  // Handle specific keys
+  if (event.key === 'Enter') {
+    console.log('Enter key pressed!');
+  }
+});
+
+// Form events
+const form = document.querySelector('form');
+const input = document.querySelector('input');
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent form submission
+  console.log('Form submitted!');
+});
+
+input.addEventListener('input', function(event) {
+  console.log('Input value:', event.target.value);
+});
+
+input.addEventListener('focus', function() {
+  this.style.borderColor = 'blue';
+});
+
+input.addEventListener('blur', function() {
+  this.style.borderColor = 'gray';
+});
+
+// Window events
+window.addEventListener('load', function() {
+  console.log('Page fully loaded!');
+});
+
+window.addEventListener('resize', function() {
+  console.log('Window resized!');
+});
+
+// Event delegation (handle events on parent)
+const list = document.getElementById('myList');
+list.addEventListener('click', function(event) {
+  if (event.target.tagName === 'LI') {
+    console.log('List item clicked:', event.target.textContent);
+  }
+});
+
+// Custom events
+const customEvent = new CustomEvent('myCustomEvent', {
+  detail: { message: 'Hello from custom event!' }
+});
+
+element.addEventListener('myCustomEvent', function(event) {
+  console.log(event.detail.message);
+});
+
+element.dispatchEvent(customEvent);</code></pre>
+                  <div id="preview-events" class="preview" aria-hidden="true">
+                    <div id="events-demo">
+                      <h4>Event Examples:</h4>
+                      <button id="click-demo" style="padding: 10px; margin: 5px;">Click Me</button>
+                      <div id="hover-demo" style="padding: 20px; border: 1px solid #ccc; margin: 10px 0;">
+                        Hover over me
+                      </div>
+                      <input id="input-demo" type="text" placeholder="Type here..." style="padding: 5px; margin: 5px;">
+                      <div id="key-demo" style="padding: 10px; background: #f0f0f0; margin: 10px 0;">
+                        Press any key
+                      </div>
+                      <div id="event-log" style="background: #f8f9fa; padding: 10px; margin: 10px 0; max-height: 150px; overflow-y: auto;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="arrays" class="topic">
+            <h2><button class="collapse-toggle" aria-expanded="true" aria-controls="content-arrays">Arrays</button></h2>
+            <div id="content-arrays" class="topic-content">
+              <p>Arrays are ordered collections of values that can be accessed by index. They provide powerful methods for manipulation and iteration.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-arrays"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-arrays"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-arrays"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-arrays" class="explanation" aria-hidden="false">
+                    <h4>Array Creation:</h4>
+                    <ul>
+                      <li><code>[]</code>: Literal syntax</li>
+                      <li><code>new Array()</code>: Constructor</li>
+                      <li><code>Array.from()</code>: From iterable</li>
+                    </ul>
+                    <h4>Common Methods:</h4>
+                    <ul>
+                      <li><strong>Modification:</strong> push, pop, shift, unshift, splice</li>
+                      <li><strong>Search:</strong> indexOf, find, includes</li>
+                      <li><strong>Iteration:</strong> forEach, map, filter, reduce</li>
+                      <li><strong>Transformation:</strong> join, slice, concat</li>
+                    </ul>
+                    <h4>Array Destructuring:</h4>
+                    <ul>
+                      <li><code>const [first, second] = array</code></li>
+                      <li><code>const [first, ...rest] = array</code></li>
+                    </ul>
+                  </div>
+                  <pre id="code-arrays" class="code" aria-hidden="false"><code class="language-javascript">// Array creation
+const fruits = ['apple', 'banana', 'orange'];
+const numbers = [1, 2, 3, 4, 5];
+const mixed = [1, 'hello', true, { name: 'Alice' }];
+
+// Array methods
+fruits.push('grape');        // Add to end
+fruits.pop();                // Remove from end
+fruits.unshift('kiwi');      // Add to beginning
+fruits.shift();              // Remove from beginning
+
+// Accessing elements
+console.log(fruits[0]);      // First element
+console.log(fruits.length); // Array length
+console.log(fruits[fruits.length - 1]); // Last element
+
+// Iteration methods
+fruits.forEach(fruit => {
+  console.log(fruit);
+});
+
+// Map creates new array
+const upperFruits = fruits.map(fruit => fruit.toUpperCase());
+
+// Filter creates new array with condition
+const longFruits = fruits.filter(fruit => fruit.length > 5);
+
+// Reduce accumulates values
+const sum = numbers.reduce((acc, num) => acc + num, 0);
+
+// Find elements
+const found = fruits.find(fruit => fruit.startsWith('a'));
+const index = fruits.indexOf('banana');
+
+// Array destructuring
+const [first, second, ...rest] = fruits;
+console.log(first);  // 'apple'
+console.log(rest);   // ['orange', 'grape']
+
+// Spread operator
+const newFruits = [...fruits, 'mango'];
+const combined = [...fruits, ...numbers];
+
+// Array methods chaining
+const result = numbers
+  .filter(num => num > 2)
+  .map(num => num * 2)
+  .reduce((sum, num) => sum + num, 0);</code></pre>
+                  <div id="preview-arrays" class="preview" aria-hidden="true">
+                    <div id="arrays-demo">
+                      <h4>Array Examples:</h4>
+                      <button onclick="demoArrayMethods()">Array Methods</button>
+                      <button onclick="demoArrayIteration()">Array Iteration</button>
+                      <button onclick="demoArrayDestructuring()">Destructuring</button>
+                      <div id="array-output"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="loops" class="topic">
+            <h2><button class="collapse-toggle" aria-expanded="true" aria-controls="content-loops">Loops</button></h2>
+            <div id="content-loops" class="topic-content">
+              <p>Loops allow you to execute code repeatedly, making it efficient to work with collections and perform repetitive tasks.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-loops"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-loops"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-loops"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-loops" class="explanation" aria-hidden="false">
+                    <h4>Loop Types:</h4>
+                    <ul>
+                      <li><strong>for:</strong> Traditional loop with counter</li>
+                      <li><strong>while:</strong> Loop while condition is true</li>
+                      <li><strong>do...while:</strong> Execute at least once</li>
+                      <li><strong>for...of:</strong> Iterate over iterables</li>
+                      <li><strong>for...in:</strong> Iterate over object properties</li>
+                    </ul>
+                    <h4>Loop Control:</h4>
+                    <ul>
+                      <li><code>break</code>: Exit loop immediately</li>
+                      <li><code>continue</code>: Skip current iteration</li>
+                    </ul>
+                    <h4>Modern Alternatives:</h4>
+                    <ul>
+                      <li><code>forEach()</code>: Array iteration</li>
+                      <li><code>map()</code>: Transform array</li>
+                      <li><code>filter()</code>: Filter array</li>
+                    </ul>
+                  </div>
+                  <pre id="code-loops" class="code" aria-hidden="false"><code class="language-javascript">// For loop
+for (let i = 0; i < 5; i++) {
+  console.log(`Count: ${i}`);
+}
+
+// For loop with array
+const fruits = ['apple', 'banana', 'orange'];
+for (let i = 0; i < fruits.length; i++) {
+  console.log(fruits[i]);
+}
+
+// While loop
+let count = 0;
+while (count < 3) {
+  console.log(`While count: ${count}`);
+  count++;
+}
+
+// Do...while loop
+let num = 0;
+do {
+  console.log(`Do-while: ${num}`);
+  num++;
+} while (num < 3);
+
+// For...of loop (arrays, strings)
+for (const fruit of fruits) {
+  console.log(fruit);
+}
+
+// For...of with strings
+for (const char of 'hello') {
+  console.log(char);
+}
+
+// For...in loop (object properties)
+const person = { name: 'Alice', age: 30, city: 'NYC' };
+for (const key in person) {
+  console.log(`${key}: ${person[key]}`);
+}
+
+// Loop control
+for (let i = 0; i < 10; i++) {
+  if (i === 3) {
+    continue; // Skip iteration
+  }
+  if (i === 7) {
+    break; // Exit loop
+  }
+  console.log(i);
+}
+
+// Nested loops
+for (let i = 0; i < 3; i++) {
+  for (let j = 0; j < 3; j++) {
+    console.log(`(${i}, ${j})`);
+  }
+}
+
+// Modern array methods (preferred)
+fruits.forEach(fruit => {
+  console.log(fruit);
+});
+
+const doubled = fruits.map(fruit => fruit.toUpperCase());
+const filtered = fruits.filter(fruit => fruit.length > 5);</code></pre>
+                  <div id="preview-loops" class="preview" aria-hidden="true">
+                    <div id="loops-demo">
+                      <h4>Loop Examples:</h4>
+                      <button onclick="demoForLoop()">For Loop</button>
+                      <button onclick="demoWhileLoop()">While Loop</button>
+                      <button onclick="demoForOfLoop()">For...of Loop</button>
+                      <button onclick="demoLoopControl()">Loop Control</button>
+                      <div id="loop-output"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="conditions" class="topic">
+            <h2><button class="collapse-toggle" aria-expanded="true" aria-controls="content-conditions">Conditions</button></h2>
+            <div id="content-conditions" class="topic-content">
+              <p>Conditional statements allow your code to make decisions and execute different code paths based on different conditions.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-conditions"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-conditions"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-conditions"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-conditions" class="explanation" aria-hidden="false">
+                    <h4>Conditional Statements:</h4>
+                    <ul>
+                      <li><strong>if:</strong> Execute if condition is true</li>
+                      <li><strong>else if:</strong> Additional conditions</li>
+                      <li><strong>else:</strong> Default case</li>
+                      <li><strong>switch:</strong> Multiple value comparisons</li>
+                    </ul>
+                    <h4>Comparison Operators:</h4>
+                    <ul>
+                      <li><code>==</code>, <code>===</code>: Equality (use ===)</li>
+                      <li><code>!=</code>, <code>!==</code>: Inequality</li>
+                      <li><code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>: Comparison</li>
+                    </ul>
+                    <h4>Logical Operators:</h4>
+                    <ul>
+                      <li><code>&amp;&amp;</code>: AND</li>
+                      <li><code>||</code>: OR</li>
+                      <li><code>!</code>: NOT</li>
+                    </ul>
+                  </div>
+                  <pre id="code-conditions" class="code" aria-hidden="false"><code class="language-javascript">// Basic if statement
+const age = 18;
+if (age >= 18) {
+  console.log('You are an adult');
+}
+
+// If...else statement
+const temperature = 25;
+if (temperature > 30) {
+  console.log('It\'s hot!');
+} else if (temperature > 20) {
+  console.log('It\'s warm');
+} else {
+  console.log('It\'s cool');
+}
+
+// Logical operators
+const isStudent = true;
+const hasDiscount = false;
+
+if (isStudent || hasDiscount) {
+  console.log('You get a discount!');
+}
+
+if (isStudent &amp;&amp; age >= 16) {
+  console.log('You can attend school');
+}
+
+// Ternary operator (shorthand if...else)
+const status = age >= 18 ? 'adult' : 'minor';
+const message = isStudent ? 'Welcome student!' : 'Welcome!';
+
+// Switch statement
+const day = 'Monday';
+switch (day) {
+  case 'Monday':
+    console.log('Start of work week');
+    break;
+  case 'Friday':
+    console.log('TGIF!');
+    break;
+  case 'Saturday':
+  case 'Sunday':
+    console.log('Weekend!');
+    break;
+  default:
+    console.log('Regular day');
+}
+
+// Truthy and falsy values
+const name = ''; // falsy
+const count = 0; // falsy
+const isActive = false; // falsy
+const user = null; // falsy
+
+if (name) {
+  console.log('Name exists');
+} else {
+  console.log('No name provided');
+}
+
+// Short-circuit evaluation
+const username = name || 'Guest';
+const isLoggedIn = user &amp;&amp; user.isActive;
+
+// Optional chaining (modern)
+const userAge = user?.age;
+const userName = user?.profile?.name;</code></pre>
+                  <div id="preview-conditions" class="preview" aria-hidden="true">
+                    <div id="conditions-demo">
+                      <h4>Condition Examples:</h4>
+                      <button onclick="demoIfElse()">If/Else</button>
+                      <button onclick="demoSwitch()">Switch</button>
+                      <button onclick="demoTernary()">Ternary</button>
+                      <button onclick="demoLogical()">Logical Operators</button>
+                      <div id="condition-output"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="objects" class="topic">
+            <h2><button class="collapse-toggle" aria-expanded="true" aria-controls="content-objects">Objects</button></h2>
+            <div id="content-objects" class="topic-content">
+              <p>Objects are collections of key-value pairs that allow you to store and organize related data and functionality.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-objects"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-objects"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-objects"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-objects" class="explanation" aria-hidden="false">
+                    <h4>Object Creation:</h4>
+                    <ul>
+                      <li><strong>Literal:</strong> <code>{ key: value }</code></li>
+                      <li><strong>Constructor:</strong> <code>new Object()</code></li>
+                      <li><strong>Factory:</strong> Functions that return objects</li>
+                    </ul>
+                    <h4>Object Properties:</h4>
+                    <ul>
+                      <li><code>object.property</code>: Dot notation</li>
+                      <li><code>object['property']</code>: Bracket notation</li>
+                      <li><code>Object.keys()</code>: Get all keys</li>
+                      <li><code>Object.values()</code>: Get all values</li>
+                    </ul>
+                    <h4>Object Methods:</h4>
+                    <ul>
+                      <li>Functions as object properties</li>
+                      <li><code>this</code> keyword refers to object</li>
+                      <li>Method shorthand in ES6</li>
+                    </ul>
+                  </div>
+                  <pre id="code-objects" class="code" aria-hidden="false"><code class="language-javascript">// Object literal
+const person = {
+  name: 'Alice',
+  age: 30,
+  city: 'New York',
+  isStudent: false
+};
+
+// Accessing properties
+console.log(person.name);        // Dot notation
+console.log(person['age']);      // Bracket notation
+
+// Adding properties
+person.email = 'alice@example.com';
+person['phone'] = '123-456-7890';
+
+// Object methods
+const calculator = {
+  add: function(a, b) {
+    return a + b;
+  },
+  subtract(a, b) {  // Method shorthand
+    return a - b;
+  },
+  multiply: (a, b) => a * b  // Arrow function
+};
+
+// Object with methods using this
+const user = {
+  name: 'Bob',
+  greet() {
+    return `Hello, I'm ${this.name}`;
+  },
+  updateName(newName) {
+    this.name = newName;
+  }
+};
+
+// Object destructuring
+const { name, age, city } = person;
+const { name: userName, age: userAge } = person; // Rename
+
+// Spread operator with objects
+const updatedPerson = { ...person, age: 31 };
+const merged = { ...person, ...user };
+
+// Object methods
+const keys = Object.keys(person);
+const values = Object.values(person);
+const entries = Object.entries(person);
+
+// Check if property exists
+if ('name' in person) {
+  console.log('Name property exists');
+}
+
+if (person.hasOwnProperty('age')) {
+  console.log('Age property exists');
+}
+
+// Object.assign (alternative to spread)
+const newPerson = Object.assign({}, person, { age: 32 });
+
+// Computed property names
+const propName = 'dynamicProp';
+const dynamicObj = {
+  [propName]: 'value',
+  [`${propName}2`]: 'another value'
+};</code></pre>
+                  <div id="preview-objects" class="preview" aria-hidden="true">
+                    <div id="objects-demo">
+                      <h4>Object Examples:</h4>
+                      <button onclick="demoObjectAccess()">Object Access</button>
+                      <button onclick="demoObjectMethods()">Object Methods</button>
+                      <button onclick="demoObjectDestructuring()">Destructuring</button>
+                      <button onclick="demoObjectSpread()">Spread Operator</button>
+                      <div id="object-output"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="async" class="topic">
+            <h2><button class="collapse-toggle" aria-expanded="true" aria-controls="content-async">Async/Await</button></h2>
+            <div id="content-async" class="topic-content">
+              <p>Async/await provides a clean way to handle asynchronous operations, making code more readable than traditional callbacks or promises.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-async"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-async"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-async"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-async" class="explanation" aria-hidden="false">
+                    <h4>Async/Await Concepts:</h4>
+                    <ul>
+                      <li><code>async</code>: Function returns a Promise</li>
+                      <li><code>await</code>: Wait for Promise to resolve</li>
+                      <li><code>try/catch</code>: Handle errors</li>
+                      <li><code>Promise.all()</code>: Wait for multiple promises</li>
+                    </ul>
+                    <h4>Common Use Cases:</h4>
+                    <ul>
+                      <li>API calls with fetch</li>
+                      <li>File operations</li>
+                      <li>Database queries</li>
+                      <li>Timers and delays</li>
+                    </ul>
+                    <h4>Error Handling:</h4>
+                    <ul>
+                      <li>Use try/catch blocks</li>
+                      <li>Handle rejected promises</li>
+                      <li>Provide fallback values</li>
+                    </ul>
+                  </div>
+                  <pre id="code-async" class="code" aria-hidden="false"><code class="language-javascript">// Basic async function
+async function fetchData() {
+  try {
+    const response = await fetch('https://api.example.com/data');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return null;
+  }
+}
+
+// Async function with delay
+async function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function processWithDelay() {
+  console.log('Starting...');
+  await delay(1000);
+  console.log('After 1 second');
+  await delay(1000);
+  console.log('After 2 seconds');
+}
+
+// Multiple async operations
+async function fetchMultipleData() {
+  try {
+    const [users, posts, comments] = await Promise.all([
+      fetch('/api/users').then(res => res.json()),
+      fetch('/api/posts').then(res => res.json()),
+      fetch('/api/comments').then(res => res.json())
+    ]);
+    
+    return { users, posts, comments };
+  } catch (error) {
+    console.error('Error fetching multiple data:', error);
+  }
+}
+
+// Async function with error handling
+async function getUserData(userId) {
+  try {
+    const response = await fetch(`/api/users/${userId}`);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const userData = await response.json();
+    return userData;
+  } catch (error) {
+    console.error('Failed to get user data:', error);
+    return { error: error.message };
+  }
+}
+
+// Async function in event handler
+document.getElementById('loadButton').addEventListener('click', async function() {
+  this.textContent = 'Loading...';
+  this.disabled = true;
+  
+  try {
+    const data = await fetchData();
+    this.textContent = 'Data loaded!';
+    console.log(data);
+  } catch (error) {
+    this.textContent = 'Error loading data';
+  } finally {
+    this.disabled = false;
+  }
+});
+
+// Async generator
+async function* asyncGenerator() {
+  for (let i = 0; i < 3; i++) {
+    await delay(500);
+    yield i;
+  }
+}
+
+// Using async generator
+async function useAsyncGenerator() {
+  for await (const value of asyncGenerator()) {
+    console.log(value);
+  }
+}</code></pre>
+                  <div id="preview-async" class="preview" aria-hidden="true">
+                    <div id="async-demo">
+                      <h4>Async/Await Examples:</h4>
+                      <button onclick="demoDelay()">Delay Demo</button>
+                      <button onclick="demoFetch()">Fetch Demo</button>
+                      <button onclick="demoPromiseAll()">Promise.all Demo</button>
+                      <div id="async-output"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="error-handling" class="topic">
+            <h2><button class="collapse-toggle" aria-expanded="true" aria-controls="content-error-handling">Error Handling</button></h2>
+            <div id="content-error-handling" class="topic-content">
+              <p>Error handling allows your code to gracefully handle unexpected situations and provide meaningful feedback to users.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-error-handling"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-error-handling"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-error-handling"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-error-handling" class="explanation" aria-hidden="false">
+                    <h4>Error Handling Methods:</h4>
+                    <ul>
+                      <li><strong>try/catch:</strong> Handle synchronous errors</li>
+                      <li><strong>try/catch with async:</strong> Handle async errors</li>
+                      <li><strong>throw:</strong> Create custom errors</li>
+                      <li><strong>finally:</strong> Cleanup code</li>
+                    </ul>
+                    <h4>Error Types:</h4>
+                    <ul>
+                      <li><code>Error</code>: Generic error</li>
+                      <li><code>TypeError</code>: Wrong data type</li>
+                      <li><code>ReferenceError</code>: Undefined variable</li>
+                      <li><code>SyntaxError</code>: Code syntax issues</li>
+                    </ul>
+                    <h4>Best Practices:</h4>
+                    <ul>
+                      <li>Handle errors gracefully</li>
+                      <li>Provide meaningful error messages</li>
+                      <li>Log errors for debugging</li>
+                      <li>Use specific error types</li>
+                    </ul>
+                  </div>
+                  <pre id="code-error-handling" class="code" aria-hidden="false"><code class="language-javascript">// Basic try/catch
+try {
+  const result = riskyOperation();
+  console.log('Success:', result);
+} catch (error) {
+  console.error('Error occurred:', error.message);
+}
+
+// Custom error throwing
+function divide(a, b) {
+  if (b === 0) {
+    throw new Error('Division by zero is not allowed');
+  }
+  return a / b;
+}
+
+// Try/catch with custom error
+try {
+  const result = divide(10, 0);
+  console.log(result);
+} catch (error) {
+  console.error('Division error:', error.message);
+}
+
+// Async error handling
+async function fetchData() {
+  try {
+    const response = await fetch('/api/data');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Fetch error:', error.message);
+    return null;
+  }
+}
+
+// Finally block
+function processFile(filename) {
+  let file = null;
+  try {
+    file = openFile(filename);
+    return processFileContent(file);
+  } catch (error) {
+    console.error('File processing error:', error.message);
+    return null;
+  } finally {
+    if (file) {
+      closeFile(file);
+    }
+  }
+}
+
+// Error types
+try {
+  const obj = null;
+  obj.property; // TypeError
+} catch (error) {
+  if (error instanceof TypeError) {
+    console.log('Type error:', error.message);
+  }
+}
+
+// Custom error class
+class ValidationError extends Error {
+  constructor(message, field) {
+    super(message);
+    this.name = 'ValidationError';
+    this.field = field;
+  }
+}
+
+function validateUser(user) {
+  if (!user.name) {
+    throw new ValidationError('Name is required', 'name');
+  }
+  if (!user.email) {
+    throw new ValidationError('Email is required', 'email');
+  }
+}
+
+// Global error handling
+window.addEventListener('error', function(event) {
+  console.error('Global error:', event.error);
+});
+
+// Promise error handling
+fetch('/api/data')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Promise error:', error));
+
+// Unhandled promise rejection
+window.addEventListener('unhandledrejection', function(event) {
+  console.error('Unhandled promise rejection:', event.reason);
+});</code></pre>
+                  <div id="preview-error-handling" class="preview" aria-hidden="true">
+                    <div id="error-handling-demo">
+                      <h4>Error Handling Examples:</h4>
+                      <button onclick="demoBasicError()">Basic Error</button>
+                      <button onclick="demoCustomError()">Custom Error</button>
+                      <button onclick="demoAsyncError()">Async Error</button>
+                      <button onclick="demoValidationError()">Validation Error</button>
+                      <div id="error-output"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="modules" class="topic">
+            <h2><button class="collapse-toggle" aria-expanded="true" aria-controls="content-modules">Modules</button></h2>
+            <div id="content-modules" class="topic-content">
+              <p>ES6 modules allow you to organize code into separate files, making it easier to maintain and reuse code across different parts of your application.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-modules"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-modules"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-modules"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-modules" class="explanation" aria-hidden="false">
+                    <h4>Module Types:</h4>
+                    <ul>
+                      <li><strong>Named exports:</strong> Multiple exports per module</li>
+                      <li><strong>Default export:</strong> Single main export</li>
+                      <li><strong>Mixed exports:</strong> Both named and default</li>
+                    </ul>
+                    <h4>Import/Export Syntax:</h4>
+                    <ul>
+                      <li><code>export</code>: Export from module</li>
+                      <li><code>import</code>: Import into module</li>
+                      <li><code>export default</code>: Default export</li>
+                      <li><code>import ... as</code>: Rename imports</li>
+                    </ul>
+                    <h4>Module Benefits:</h4>
+                    <ul>
+                      <li>Code organization</li>
+                      <li>Reusability</li>
+                      <li>Dependency management</li>
+                      <li>Tree shaking (dead code elimination)</li>
+                    </ul>
+                  </div>
+                  <pre id="code-modules" class="code" aria-hidden="false"><code class="language-javascript">// math.js - Named exports
+export const add = (a, b) => a + b;
+export const subtract = (a, b) => a - b;
+export const multiply = (a, b) => a * b;
+export const divide = (a, b) => a / b;
+
+// utils.js - Default export
+const formatDate = (date) => {
+  return date.toLocaleDateString();
+};
+
+export default formatDate;
+
+// user.js - Mixed exports
+export const createUser = (name, email) => ({
+  name,
+  email,
+  id: Date.now()
+});
+
+export const validateUser = (user) => {
+  return user.name && user.email;
+};
+
+const UserService = {
+  createUser,
+  validateUser
+};
+
+export default UserService;
+
+// main.js - Importing modules
+import { add, subtract } from './math.js';
+import formatDate from './utils.js';
+import UserService, { createUser } from './user.js';
+
+// Using imported functions
+const result = add(5, 3);
+const formatted = formatDate(new Date());
+const user = createUser('Alice', 'alice@example.com');
+
+// Import all exports
+import * as Math from './math.js';
+const sum = Math.add(10, 5);
+
+// Import with renaming
+import { add as addition } from './math.js';
+import { createUser as newUser } from './user.js';
+
+// Dynamic imports
+async function loadModule() {
+  const module = await import('./math.js');
+  return module.add(1, 2);
+}
+
+// Conditional imports
+if (condition) {
+  const { specialFunction } = await import('./special.js');
+  specialFunction();
+}
+
+// HTML script tag with modules
+// &lt;script type="module" src="main.js"&gt;&lt;/script&gt;
+
+// Re-exporting
+export { add, subtract } from './math.js';
+export { default as UserService } from './user.js';</code></pre>
+                  <div id="preview-modules" class="preview" aria-hidden="true">
+                    <div id="modules-demo">
+                      <h4>Module Examples:</h4>
+                      <p><strong>Note:</strong> Modules require a server environment to work properly.</p>
+                      <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 10px 0;">
+                        <h5>Example Module Structure:</h5>
+                        <pre style="background: white; padding: 10px; border-radius: 3px; font-size: 12px;">
+// math.js
+export const add = (a, b) => a + b;
+export const subtract = (a, b) => a - b;
+
+// main.js
+import { add, subtract } from './math.js';
+console.log(add(5, 3)); // 8
+                        </pre>
+                      </div>
+                      <div style="background: #e7f3ff; padding: 15px; border-radius: 5px; margin: 10px 0;">
+                        <h5>HTML Usage:</h5>
+                        <pre style="background: white; padding: 10px; border-radius: 3px; font-size: 12px;">
+&lt;script type="module" src="main.js"&gt;&lt;/script&gt;
+                        </pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <nav class="topic-nav-bottom" aria-label="Topic pagination">
+            <a class="btn btn-outline" href="css.html"><i class="fas fa-arrow-left"></i> CSS Topics</a>
+            <a class="btn btn-outline" href="contact.html">Contact / About <i class="fas fa-arrow-right"></i></a>
+          </nav>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p><i class="fas fa-code"></i> © <span id="year"></span> WebBasics</p>
+      </div>
+    </footer>
+
+    <script src="./js/main.js" defer></script>
+  </body>
+  </html>
+
+

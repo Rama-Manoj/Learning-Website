@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact & About — WebBasics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">WebBasics</a>
+        <nav class="site-nav" aria-label="Primary">
+          <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰</button>
+          <ul id="primary-nav" class="nav-list">
+            <li><a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a class="nav-link" href="html.html"><i class="fab fa-html5"></i> HTML Topics</a></li>
+            <li><a class="nav-link" href="css.html"><i class="fab fa-css3-alt"></i> CSS Topics</a></li>
+            <li><a class="nav-link" href="javascript.html"><i class="fab fa-js-square"></i> JavaScript Topics</a></li>
+            <li><a class="nav-link active" href="contact.html"><i class="fas fa-envelope"></i> Contact / About</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button id="themeToggle" class="btn btn-secondary" aria-pressed="false" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+        </div>
+      </div>
+    </header>
+
+    <main class="site-main">
+      <section class="section">
+        <div class="container">
+          <h1>Contact & About</h1>
+          <p class="lead">Got feedback or questions? Send a message below.</p>
+
+          <div class="grid two">
+            <article>
+              <h2><i class="fas fa-info-circle"></i> About this site</h2>
+              <p>WebBasics helps beginners learn web development with clear explanations and live examples.</p>
+              <ul>
+                <li><i class="fas fa-graduation-cap"></i> Beginner-first writing</li>
+                <li><i class="fas fa-play-circle"></i> Interactive, practical examples</li>
+                <li><i class="fas fa-universal-access"></i> Accessible and responsive design</li>
+              </ul>
+            </article>
+
+            <article>
+              <h2><i class="fas fa-envelope"></i> Contact form</h2>
+              <!-- Client-side validation will be handled in JS -->
+              <form id="contactForm" novalidate>
+                <div class="form-field">
+                  <label for="name"><i class="fas fa-user"></i> Name</label>
+                  <input id="name" name="name" type="text" required placeholder="Your full name">
+                  <small class="error" aria-live="polite"></small>
+                </div>
+
+                <div class="form-field">
+                  <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                  <input id="email" name="email" type="email" required placeholder="you@example.com">
+                  <small class="error" aria-live="polite"></small>
+                </div>
+
+                <div class="form-field">
+                  <label for="message"><i class="fas fa-comment"></i> Message</label>
+                  <textarea id="message" name="message" rows="5" required placeholder="How can we help?"></textarea>
+                  <small class="error" aria-live="polite"></small>
+                </div>
+
+                <div class="form-actions">
+                  <button class="btn btn-primary" type="submit"><i class="fas fa-paper-plane"></i> Send</button>
+                  <p id="formStatus" role="status" aria-live="polite"></p>
+                </div>
+              </form>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p><i class="fas fa-code"></i> © <span id="year"></span> WebBasics</p>
+      </div>
+    </footer>
+
+    <script src="./js/main.js" defer></script>
+  </body>
+  </html>
+
+

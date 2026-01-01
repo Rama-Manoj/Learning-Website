@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CSS Topics — WebBasics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">WebBasics</a>
+        <nav class="site-nav" aria-label="Primary">
+          <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">☰</button>
+          <ul id="primary-nav" class="nav-list">
+            <li><a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a class="nav-link" href="html.html"><i class="fab fa-html5"></i> HTML Topics</a></li>
+            <li><a class="nav-link active" href="css.html"><i class="fab fa-css3-alt"></i> CSS Topics</a></li>
+            <li><a class="nav-link" href="javascript.html"><i class="fab fa-js-square"></i> JavaScript Topics</a></li>
+            <li><a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact / About</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button id="themeToggle" class="btn btn-secondary" aria-pressed="false" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+        </div>
+      </div>
+    </header>
+
+    <main class="site-main">
+      <section class="section">
+        <div class="container">
+          <h1>CSS Topics</h1>
+          <p class="lead">Control presentation and layout with modern CSS.</p>
+
+          <div class="layout">
+            <aside class="toc" aria-label="Table of contents">
+              <h2>On this page</h2>
+              <nav id="tocNav">
+                <a href="#selectors">Selectors</a>
+                <a href="#box-model">Box Model</a>
+                <a href="#typography">Typography</a>
+                <a href="#colors">Colors</a>
+                <a href="#positioning">Positioning</a>
+                <a href="#flexbox">Flexbox</a>
+                <a href="#grid">Grid</a>
+                <a href="#transitions">Transitions</a>
+                <a href="#media-queries">Media Queries</a>
+                <a href="#animations">Animations</a>
+                <a href="#responsive">Responsive Design</a>
+              </nav>
+            </aside>
+
+            <div>
+
+          <article id="selectors" class="topic">
+            <h2><button class="collapse-toggle" aria-expanded="true" aria-controls="content-selectors">Selectors</button></h2>
+            <div id="content-selectors" class="topic-content">
+              <p>CSS selectors target HTML elements to apply styles. Understanding different selector types is crucial for effective styling.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-selectors"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-selectors"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-selectors"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-selectors" class="explanation" aria-hidden="false">
+                    <h4>Basic Selectors:</h4>
+                    <ul>
+                      <li><strong>Type:</strong> <code>p</code>, <code>h1</code>, <code>div</code></li>
+                      <li><strong>Class:</strong> <code>.class-name</code></li>
+                      <li><strong>ID:</strong> <code>#id-name</code></li>
+                      <li><strong>Universal:</strong> <code>*</code> (all elements)</li>
+                    </ul>
+                    <h4>Attribute Selectors:</h4>
+                    <ul>
+                      <li><code>[attribute]</code>: Has attribute</li>
+                      <li><code>[attribute="value"]</code>: Exact match</li>
+                      <li><code>[attribute^="value"]</code>: Starts with</li>
+                      <li><code>[attribute$="value"]</code>: Ends with</li>
+                    </ul>
+                    <h4>Combinators:</h4>
+                    <ul>
+                      <li><strong>Descendant:</strong> <code>div p</code></li>
+                      <li><strong>Child:</strong> <code>div > p</code></li>
+                      <li><strong>Adjacent:</strong> <code>div + p</code></li>
+                      <li><strong>General sibling:</strong> <code>div ~ p</code></li>
+                    </ul>
+                  </div>
+                  <pre id="code-selectors" class="code" aria-hidden="false"><code class="language-css">/* Type selectors */
+p { color: royalblue; }
+h1 { font-size: 2rem; }
+
+/* Class selectors */
+.highlight { background: #fffa9e; }
+.button { padding: 10px 20px; }
+
+/* ID selectors */
+#title { font-weight: 700; }
+#main-content { max-width: 800px; }
+
+/* Attribute selectors */
+[type="text"] { border: 1px solid #ccc; }
+[href^="https"] { color: green; }
+[href$=".pdf"] { color: red; }
+
+/* Descendant combinator */
+.nav ul li { display: inline-block; }
+
+/* Child combinator */
+.menu > li { border-bottom: 1px solid #eee; }
+
+/* Adjacent sibling */
+h1 + p { margin-top: 0; }
+
+/* Pseudo-classes */
+a:hover { text-decoration: underline; }
+li:first-child { font-weight: bold; }
+input:focus { border-color: blue; }
+
+/* Pseudo-elements */
+p::first-line { font-weight: bold; }
+p::after { content: " *"; }</code></pre>
+                  <div id="preview-selectors" class="preview" aria-hidden="true">
+                    <style>
+                      .selector-demo p { color: royalblue; }
+                      .selector-demo .highlight { background: #fffa9e; }
+                      .selector-demo #title { font-weight: 700; }
+                      .selector-demo [type="text"] { border: 1px solid #ccc; padding: 5px; }
+                      .selector-demo a:hover { text-decoration: underline; }
+                      .selector-demo li:first-child { font-weight: bold; }
+                    </style>
+                    <div class="selector-demo">
+                      <h1 id="title">I am a title (ID selector)</h1>
+                      <p>Regular paragraph (type selector)</p>
+                      <p class="highlight">Highlighted paragraph (class selector)</p>
+                      <input type="text" placeholder="Attribute selector example">
+                      <ul>
+                        <li>First child (pseudo-class)</li>
+                        <li>Second child</li>
+                        <li>Third child</li>
+                      </ul>
+                      <a href="#">Hover me (pseudo-class)</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="box-model" class="topic">
+            <h2><button class="collapse-toggle" aria-expanded="true" aria-controls="content-box">Box Model</button></h2>
+            <div id="content-box" class="topic-content">
+              <p>Every HTML element is a rectangular box with content, padding, border, and margin. Understanding the box model is crucial for layout and spacing.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-box"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-box"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-box"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-box" class="explanation" aria-hidden="false">
+                    <h4>Box Model Components:</h4>
+                    <ul>
+                      <li><strong>Content:</strong> The actual content (text, images)</li>
+                      <li><strong>Padding:</strong> Space between content and border</li>
+                      <li><strong>Border:</strong> Line around the padding</li>
+                      <li><strong>Margin:</strong> Space outside the border</li>
+                    </ul>
+                    <h4>Box-Sizing:</h4>
+                    <ul>
+                      <li><code>content-box</code>: Default, width/height = content only</li>
+                      <li><code>border-box</code>: Width/height includes padding + border</li>
+                    </ul>
+                  </div>
+                  <pre id="code-box" class="code" aria-hidden="false"><code class="language-css">/* Box model example */
+.box {
+  width: 200px;
+  height: 100px;
+  padding: 20px;
+  border: 5px solid #333;
+  margin: 10px;
+  background-color: #f0f0f0;
+}
+
+/* Border-box sizing */
+.border-box {
+  box-sizing: border-box;
+  width: 200px; /* Includes padding + border */
+}
+
+/* Individual sides */
+.padding-example {
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 30px;
+  padding-left: 40px;
+  /* Shorthand: padding: 10px 20px 30px 40px; */
+}</code></pre>
+                  <div id="preview-box" class="preview" aria-hidden="true">
+                    <style>
+                      .box-demo {
+                        width: 200px;
+                        height: 100px;
+                        padding: 20px;
+                        border: 5px solid #333;
+                        margin: 10px;
+                        background-color: #f0f0f0;
+                        display: inline-block;
+                        vertical-align: top;
+                      }
+                      .border-box-demo {
+                        box-sizing: border-box;
+                        width: 200px;
+                        height: 100px;
+                        padding: 20px;
+                        border: 5px solid #333;
+                        margin: 10px;
+                        background-color: #e0e0e0;
+                        display: inline-block;
+                        vertical-align: top;
+                      }
+                    </style>
+                    <div class="box-demo">Content Box<br>(200px + padding + border)</div>
+                    <div class="border-box-demo">Border Box<br>(200px total)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="positioning" class="topic">
+            <h2><button class="collapse-toggle" aria-expanded="true" aria-controls="content-positioning">Positioning</button></h2>
+            <div id="content-positioning" class="topic-content">
+              <p>CSS positioning allows you to control where elements appear on the page. Each positioning type behaves differently in the document flow.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-positioning"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-positioning"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-positioning"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-positioning" class="explanation" aria-hidden="false">
+                    <h4>Position Types:</h4>
+                    <ul>
+                      <li><strong>static:</strong> Default, follows normal document flow</li>
+                      <li><strong>relative:</strong> Positioned relative to its normal position</li>
+                      <li><strong>absolute:</strong> Positioned relative to nearest positioned ancestor</li>
+                      <li><strong>fixed:</strong> Positioned relative to viewport (stays in place when scrolling)</li>
+                      <li><strong>sticky:</strong> Switches between relative and fixed based on scroll</li>
+                    </ul>
+                    <h4>Positioning Properties:</h4>
+                    <ul>
+                      <li><code>top, right, bottom, left</code>: Offset values</li>
+                      <li><code>z-index</code>: Stacking order</li>
+                    </ul>
+                  </div>
+                  <pre id="code-positioning" class="code" aria-hidden="false"><code class="language-css">/* Static positioning (default) */
+.static {
+  position: static;
+}
+
+/* Relative positioning */
+.relative {
+  position: relative;
+  top: 20px;
+  left: 30px;
+}
+
+/* Absolute positioning */
+.absolute {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+}
+
+/* Fixed positioning */
+.fixed {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+/* Sticky positioning */
+.sticky {
+  position: sticky;
+  top: 0;
+  background: white;
+}</code></pre>
+                  <div id="preview-positioning" class="preview" aria-hidden="true">
+                    <style>
+                      .pos-demo {
+                        border: 2px solid #333;
+                        padding: 10px;
+                        margin: 5px;
+                        background: #f0f0f0;
+                      }
+                      .relative-demo {
+                        position: relative;
+                        top: 10px;
+                        left: 20px;
+                        background: #e0f0ff;
+                      }
+                      .absolute-demo {
+                        position: absolute;
+                        top: 50px;
+                        right: 20px;
+                        background: #ffe0e0;
+                        width: 100px;
+                      }
+                      .fixed-demo {
+                        position: fixed;
+                        bottom: 20px;
+                        right: 20px;
+                        background: #e0ffe0;
+                        width: 80px;
+                        z-index: 1000;
+                      }
+                    </style>
+                    <div class="pos-demo">Static (normal flow)</div>
+                    <div class="pos-demo relative-demo">Relative (offset from normal position)</div>
+                    <div class="pos-demo absolute-demo">Absolute (positioned relative to page)</div>
+                    <div class="pos-demo fixed-demo">Fixed (stays in viewport)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="flexbox" class="topic">
+            <h2><button class="collapse-toggle" aria-expanded="true" aria-controls="content-flexbox">Flexbox</button></h2>
+            <div id="content-flexbox" class="topic-content">
+              <p>Flexbox is a powerful layout method for arranging items in one dimension (row or column) with flexible sizing and alignment.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-flexbox"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-flexbox"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-flexbox"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-flexbox" class="explanation" aria-hidden="false">
+                    <h4>Flex Container Properties:</h4>
+                    <ul>
+                      <li><code>display: flex</code>: Creates flex container</li>
+                      <li><code>flex-direction</code>: row, column, row-reverse, column-reverse</li>
+                      <li><code>justify-content</code>: Main axis alignment</li>
+                      <li><code>align-items</code>: Cross axis alignment</li>
+                      <li><code>flex-wrap</code>: Allow items to wrap</li>
+                    </ul>
+                    <h4>Flex Item Properties:</h4>
+                    <ul>
+                      <li><code>flex-grow</code>: How much item should grow</li>
+                      <li><code>flex-shrink</code>: How much item should shrink</li>
+                      <li><code>flex-basis</code>: Initial size before free space</li>
+                      <li><code>order</code>: Visual order of items</li>
+                    </ul>
+                  </div>
+                  <pre id="code-flexbox" class="code" aria-hidden="false"><code class="language-css">/* Flex container */
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Flex items */
+.flex-item {
+  flex: 1; /* flex-grow: 1, flex-shrink: 1, flex-basis: 0% */
+}
+
+.flex-item-large {
+  flex: 2; /* Takes twice the space */
+}
+
+/* Centering with flexbox */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+/* Responsive flexbox */
+.responsive-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.responsive-flex > * {
+  flex: 1 1 300px; /* grow shrink basis */
+}</code></pre>
+                  <div id="preview-flexbox" class="preview" aria-hidden="true">
+                    <style>
+                      .flex-demo {
+                        display: flex;
+                        border: 2px solid #333;
+                        padding: 10px;
+                        margin: 10px 0;
+                        gap: 10px;
+                      }
+                      .flex-item-demo {
+                        background: #e0f0ff;
+                        padding: 10px;
+                        text-align: center;
+                        border: 1px solid #999;
+                      }
+                      .flex-center {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100px;
+                        background: #f0f0f0;
+                        border: 2px solid #333;
+                        margin: 10px 0;
+                      }
+                      .flex-space-between {
+                        justify-content: space-between;
+                      }
+                      .flex-wrap-demo {
+                        flex-wrap: wrap;
+                      }
+                    </style>
+                    <h4>Basic Flexbox:</h4>
+                    <div class="flex-demo">
+                      <div class="flex-item-demo">Item 1</div>
+                      <div class="flex-item-demo">Item 2</div>
+                      <div class="flex-item-demo">Item 3</div>
+                    </div>
+                    
+                    <h4>Space Between:</h4>
+                    <div class="flex-demo flex-space-between">
+                      <div class="flex-item-demo">Left</div>
+                      <div class="flex-item-demo">Center</div>
+                      <div class="flex-item-demo">Right</div>
+                    </div>
+                    
+                    <h4>Centering:</h4>
+                    <div class="flex-center">
+                      <div class="flex-item-demo">Centered Content</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="grid" class="topic">
+            <h2><button class="collapse-toggle" aria-expanded="true" aria-controls="content-grid">Grid</button></h2>
+            <div id="content-grid" class="topic-content">
+              <p>CSS Grid is a powerful two-dimensional layout system that allows you to create complex layouts with rows and columns.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-grid"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-grid"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-grid"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-grid" class="explanation" aria-hidden="false">
+                    <h4>Grid Container Properties:</h4>
+                    <ul>
+                      <li><code>display: grid</code>: Creates grid container</li>
+                      <li><code>grid-template-columns</code>: Define column sizes</li>
+                      <li><code>grid-template-rows</code>: Define row sizes</li>
+                      <li><code>gap</code>: Space between grid items</li>
+                      <li><code>grid-template-areas</code>: Named grid areas</li>
+                    </ul>
+                    <h4>Grid Item Properties:</h4>
+                    <ul>
+                      <li><code>grid-column</code>: Which columns item spans</li>
+                      <li><code>grid-row</code>: Which rows item spans</li>
+                      <li><code>grid-area</code>: Named area or position</li>
+                    </ul>
+                  </div>
+                  <pre id="code-grid" class="code" aria-hidden="false"><code class="language-css">/* Basic grid */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
+}
+
+/* Grid with named areas */
+.layout-grid {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "sidebar main aside"
+    "footer footer footer";
+  grid-template-columns: 200px 1fr 200px;
+  grid-template-rows: auto 1fr auto;
+  gap: 10px;
+  height: 400px;
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main { grid-area: main; }
+.aside { grid-area: aside; }
+.footer { grid-area: footer; }
+
+/* Responsive grid */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}</code></pre>
+                  <div id="preview-grid" class="preview" aria-hidden="true">
+                    <style>
+                      .grid-demo {
+                        display: grid;
+                        border: 2px solid #333;
+                        padding: 10px;
+                        margin: 10px 0;
+                        gap: 10px;
+                      }
+                      .grid-item-demo {
+                        background: #e0f0ff;
+                        padding: 15px;
+                        text-align: center;
+                        border: 1px solid #999;
+                      }
+                      .basic-grid {
+                        grid-template-columns: 1fr 2fr 1fr;
+                        grid-template-rows: auto auto;
+                      }
+                      .layout-grid-demo {
+                        grid-template-areas:
+                          "header header header"
+                          "sidebar main aside"
+                          "footer footer footer";
+                        grid-template-columns: 100px 1fr 100px;
+                        grid-template-rows: auto 1fr auto;
+                        height: 200px;
+                      }
+                      .header-demo { grid-area: header; background: #ffe0e0; }
+                      .sidebar-demo { grid-area: sidebar; background: #e0ffe0; }
+                      .main-demo { grid-area: main; background: #fff0e0; }
+                      .aside-demo { grid-area: aside; background: #f0e0ff; }
+                      .footer-demo { grid-area: footer; background: #e0f0f0; }
+                    </style>
+                    <h4>Basic Grid (3 columns):</h4>
+                    <div class="grid-demo basic-grid">
+                      <div class="grid-item-demo">Item 1</div>
+                      <div class="grid-item-demo">Item 2 (wider)</div>
+                      <div class="grid-item-demo">Item 3</div>
+                      <div class="grid-item-demo">Item 4</div>
+                      <div class="grid-item-demo">Item 5</div>
+                      <div class="grid-item-demo">Item 6</div>
+                    </div>
+                    
+                    <h4>Layout Grid:</h4>
+                    <div class="grid-demo layout-grid-demo">
+                      <div class="header-demo">Header</div>
+                      <div class="sidebar-demo">Sidebar</div>
+                      <div class="main-demo">Main Content</div>
+                      <div class="aside-demo">Aside</div>
+                      <div class="footer-demo">Footer</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="transitions" class="topic">
+            <h2><button class="collapse-toggle" aria-expanded="true" aria-controls="content-transitions">Transitions</button></h2>
+            <div id="content-transitions" class="topic-content">
+              <p>CSS transitions provide smooth animations between property changes, creating engaging user experiences.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-transitions"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-transitions"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-transitions"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-transitions" class="explanation" aria-hidden="false">
+                    <h4>Transition Properties:</h4>
+                    <ul>
+                      <li><code>transition-property</code>: Which properties to animate</li>
+                      <li><code>transition-duration</code>: How long the transition takes</li>
+                      <li><code>transition-timing-function</code>: Animation curve</li>
+                      <li><code>transition-delay</code>: Delay before transition starts</li>
+                      <li><code>transition</code>: Shorthand for all properties</li>
+                    </ul>
+                    <h4>Common Timing Functions:</h4>
+                    <ul>
+                      <li><code>ease</code>: Slow start, fast middle, slow end</li>
+                      <li><code>linear</code>: Constant speed</li>
+                      <li><code>ease-in</code>: Slow start</li>
+                      <li><code>ease-out</code>: Slow end</li>
+                      <li><code>ease-in-out</code>: Slow start and end</li>
+                    </ul>
+                  </div>
+                  <pre id="code-transitions" class="code" aria-hidden="false"><code class="language-css">/* Basic transition */
+.button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+/* Multiple properties */
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Different timing functions */
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+
+.fade-in.visible {
+  opacity: 1;
+}
+
+/* Transform transitions */
+.scale {
+  transform: scale(1);
+  transition: transform 0.2s ease-out;
+}
+
+.scale:hover {
+  transform: scale(1.1);
+}</code></pre>
+                  <div id="preview-transitions" class="preview" aria-hidden="true">
+                    <style>
+                      .transition-demo {
+                        background-color: #007bff;
+                        color: white;
+                        padding: 15px 25px;
+                        border: none;
+                        border-radius: 6px;
+                        margin: 10px;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        display: inline-block;
+                      }
+                      .transition-demo:hover {
+                        background-color: #0056b3;
+                        transform: translateY(-2px);
+                        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                      }
+                      .card-demo {
+                        background: white;
+                        border-radius: 8px;
+                        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                        padding: 20px;
+                        margin: 10px;
+                        width: 200px;
+                        transition: all 0.3s ease;
+                        cursor: pointer;
+                      }
+                      .card-demo:hover {
+                        transform: translateY(-5px);
+                        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+                      }
+                      .scale-demo {
+                        background: #28a745;
+                        color: white;
+                        padding: 15px;
+                        border-radius: 50%;
+                        width: 80px;
+                        height: 80px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 20px;
+                        cursor: pointer;
+                        transition: transform 0.2s ease-out;
+                      }
+                      .scale-demo:hover {
+                        transform: scale(1.2);
+                      }
+                    </style>
+                    <h4>Button Transition:</h4>
+                    <button class="transition-demo">Hover Me</button>
+                    
+                    <h4>Card Transition:</h4>
+                    <div class="card-demo">
+                      <h5>Card Title</h5>
+                      <p>Hover to see the effect</p>
+                    </div>
+                    
+                    <h4>Scale Transition:</h4>
+                    <div class="scale-demo">+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="media-queries" class="topic">
+            <h2><button class="collapse-toggle" aria-expanded="true" aria-controls="content-mq">Media Queries</button></h2>
+            <div id="content-mq" class="topic-content">
+              <p>Media queries allow you to apply different styles based on device characteristics like screen size, orientation, and resolution.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-mq"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-mq"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-mq"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-mq" class="explanation" aria-hidden="false">
+                    <h4>Media Query Syntax:</h4>
+                    <ul>
+                      <li><code>@media (condition) { styles }</code></li>
+                      <li>Conditions can be combined with <code>and</code>, <code>or</code>, <code>not</code></li>
+                      <li>Use <code>min-width</code> and <code>max-width</code> for breakpoints</li>
+                    </ul>
+                    <h4>Common Breakpoints:</h4>
+                    <ul>
+                      <li><strong>Mobile:</strong> up to 768px</li>
+                      <li><strong>Tablet:</strong> 768px - 1024px</li>
+                      <li><strong>Desktop:</strong> 1024px and above</li>
+                    </ul>
+                    <h4>Media Features:</h4>
+                    <ul>
+                      <li><code>width</code>, <code>height</code>: Viewport dimensions</li>
+                      <li><code>orientation</code>: portrait or landscape</li>
+                      <li><code>resolution</code>: Screen resolution</li>
+                      <li><code>prefers-color-scheme</code>: Dark/light mode preference</li>
+                    </ul>
+                  </div>
+                  <pre id="code-mq" class="code" aria-hidden="false"><code class="language-css">/* Mobile-first approach */
+.container {
+  width: 100%;
+  padding: 10px;
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+/* Desktop and up */
+@media (min-width: 1024px) {
+  .container {
+    width: 1200px;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+}
+
+/* Landscape orientation */
+@media (orientation: landscape) {
+  .header {
+    height: 60px;
+  }
+}
+
+/* High resolution displays */
+@media (min-resolution: 2dppx) {
+  .logo {
+    background-image: url('logo@2x.png');
+  }
+}</code></pre>
+                  <div id="preview-mq" class="preview" aria-hidden="true">
+                    <style>
+                      .mq-demo {
+                        background: #f0f0f0;
+                        padding: 20px;
+                        border: 2px solid #333;
+                        margin: 10px 0;
+                        text-align: center;
+                      }
+                      .mq-demo h4 {
+                        margin: 0 0 10px 0;
+                        color: #333;
+                      }
+                      .mq-demo p {
+                        margin: 0;
+                        color: #666;
+                      }
+                      @media (max-width: 600px) {
+                        .mq-demo {
+                          background: #e0f0ff;
+                          padding: 15px;
+                        }
+                        .mq-demo h4 {
+                          font-size: 16px;
+                        }
+                      }
+                      @media (min-width: 601px) and (max-width: 900px) {
+                        .mq-demo {
+                          background: #ffe0e0;
+                          padding: 25px;
+                        }
+                      }
+                      @media (min-width: 901px) {
+                        .mq-demo {
+                          background: #e0ffe0;
+                          padding: 30px;
+                          max-width: 600px;
+                          margin: 10px auto;
+                        }
+                      }
+                    </style>
+                    <div class="mq-demo">
+                      <h4>Responsive Design Demo</h4>
+                      <p>This box changes appearance based on screen size:</p>
+                      <ul style="text-align: left; margin: 10px 0;">
+                        <li>Mobile (≤600px): Blue background, smaller padding</li>
+                        <li>Tablet (601-900px): Red background, medium padding</li>
+                        <li>Desktop (≥901px): Green background, larger padding, centered</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="typography" class="topic">
+            <h2><button class="collapse-toggle" aria-expanded="true" aria-controls="content-typography">Typography</button></h2>
+            <div id="content-typography" class="topic-content">
+              <p>Typography controls the appearance and readability of text through fonts, sizes, spacing, and styling.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-typography"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-typography"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-typography"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-typography" class="explanation" aria-hidden="false">
+                    <h4>Font Properties:</h4>
+                    <ul>
+                      <li><code>font-family</code>: Font stack (fallbacks)</li>
+                      <li><code>font-size</code>: Text size</li>
+                      <li><code>font-weight</code>: Boldness (100-900)</li>
+                      <li><code>font-style</code>: Normal, italic, oblique</li>
+                      <li><code>line-height</code>: Line spacing</li>
+                    </ul>
+                    <h4>Text Properties:</h4>
+                    <ul>
+                      <li><code>text-align</code>: Left, center, right, justify</li>
+                      <li><code>text-decoration</code>: Underline, overline, line-through</li>
+                      <li><code>text-transform</code>: Uppercase, lowercase, capitalize</li>
+                      <li><code>letter-spacing</code>: Space between characters</li>
+                      <li><code>word-spacing</code>: Space between words</li>
+                    </ul>
+                  </div>
+                  <pre id="code-typography" class="code" aria-hidden="false"><code class="language-css">/* Font families with fallbacks */
+.heading {
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.body-text {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Text styling */
+.emphasis {
+  font-style: italic;
+  font-weight: 600;
+}
+
+.uppercase {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.centered {
+  text-align: center;
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 1.5rem;
+  }
+  
+  .body-text {
+    font-size: 0.9rem;
+  }
+}</code></pre>
+                  <div id="preview-typography" class="preview" aria-hidden="true">
+                    <style>
+                      .typo-heading {
+                        font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+                        font-size: 2rem;
+                        font-weight: 700;
+                        line-height: 1.2;
+                        margin: 20px 0 10px 0;
+                      }
+                      .typo-body {
+                        font-family: 'Georgia', 'Times New Roman', serif;
+                        font-size: 1rem;
+                        line-height: 1.6;
+                        color: #333;
+                        margin: 10px 0;
+                      }
+                      .typo-emphasis {
+                        font-style: italic;
+                        font-weight: 600;
+                      }
+                      .typo-uppercase {
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                      }
+                      .typo-centered {
+                        text-align: center;
+                      }
+                    </style>
+                    <h2 class="typo-heading">Typography Example</h2>
+                    <p class="typo-body">This is a paragraph with good typography. It uses <span class="typo-emphasis">emphasis</span> and proper <span class="typo-uppercase">spacing</span>.</p>
+                    <p class="typo-body typo-centered">This text is centered and demonstrates different typography styles.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="colors" class="topic">
+            <h2><button class="collapse-toggle" aria-expanded="true" aria-controls="content-colors">Colors</button></h2>
+            <div id="content-colors" class="topic-content">
+              <p>CSS provides multiple ways to specify colors, from basic keywords to advanced color functions.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-colors"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-colors"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-colors"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-colors" class="explanation" aria-hidden="false">
+                    <h4>Color Formats:</h4>
+                    <ul>
+                      <li><strong>Keywords:</strong> red, blue, green, etc.</li>
+                      <li><strong>Hex:</strong> #ff0000, #00ff00, #0000ff</li>
+                      <li><strong>RGB:</strong> rgb(255, 0, 0)</li>
+                      <li><strong>RGBA:</strong> rgba(255, 0, 0, 0.5) with alpha</li>
+                      <li><strong>HSL:</strong> hsl(0, 100%, 50%)</li>
+                      <li><strong>HSLA:</strong> hsla(0, 100%, 50%, 0.5)</li>
+                    </ul>
+                    <h4>Color Properties:</h4>
+                    <ul>
+                      <li><code>color</code>: Text color</li>
+                      <li><code>background-color</code>: Background color</li>
+                      <li><code>border-color</code>: Border color</li>
+                    </ul>
+                  </div>
+                  <pre id="code-colors" class="code" aria-hidden="false"><code class="language-css">/* Color keywords */
+.keyword-red { color: red; }
+.keyword-blue { background-color: blue; }
+
+/* Hex colors */
+.hex-primary { color: #007bff; }
+.hex-secondary { background-color: #6c757d; }
+
+/* RGB colors */
+.rgb-text { color: rgb(40, 167, 69); }
+.rgba-bg { background-color: rgba(255, 193, 7, 0.3); }
+
+/* HSL colors */
+.hsl-color { color: hsl(120, 100%, 50%); }
+.hsla-bg { background-color: hsla(240, 100%, 50%, 0.2); }
+
+/* Color schemes */
+.primary { color: #007bff; }
+.secondary { color: #6c757d; }
+.success { color: #28a745; }
+.danger { color: #dc3545; }
+.warning { color: #ffc107; }
+.info { color: #17a2b8; }</code></pre>
+                  <div id="preview-colors" class="preview" aria-hidden="true">
+                    <style>
+                      .color-demo {
+                        padding: 15px;
+                        margin: 10px 0;
+                        border-radius: 6px;
+                        border: 2px solid #333;
+                      }
+                      .color-keyword { background-color: red; color: white; }
+                      .color-hex { background-color: #007bff; color: white; }
+                      .color-rgb { background-color: rgb(40, 167, 69); color: white; }
+                      .color-rgba { background-color: rgba(255, 193, 7, 0.7); color: #333; }
+                      .color-hsl { background-color: hsl(120, 100%, 50%); color: white; }
+                      .color-hsla { background-color: hsla(240, 100%, 50%, 0.3); color: #333; }
+                    </style>
+                    <div class="color-demo color-keyword">Keyword: red</div>
+                    <div class="color-demo color-hex">Hex: #007bff</div>
+                    <div class="color-demo color-rgb">RGB: rgb(40, 167, 69)</div>
+                    <div class="color-demo color-rgba">RGBA: rgba(255, 193, 7, 0.7)</div>
+                    <div class="color-demo color-hsl">HSL: hsl(120, 100%, 50%)</div>
+                    <div class="color-demo color-hsla">HSLA: hsla(240, 100%, 50%, 0.3)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="animations" class="topic">
+            <h2><button class="collapse-toggle" aria-expanded="true" aria-controls="content-animations">Animations</button></h2>
+            <div id="content-animations" class="topic-content">
+              <p>CSS animations create complex, multi-step animations using keyframes for more control than transitions.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-animations"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-animations"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-animations"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-animations" class="explanation" aria-hidden="false">
+                    <h4>Animation Properties:</h4>
+                    <ul>
+                      <li><code>animation-name</code>: Name of keyframe animation</li>
+                      <li><code>animation-duration</code>: How long animation takes</li>
+                      <li><code>animation-timing-function</code>: Animation curve</li>
+                      <li><code>animation-delay</code>: Delay before starting</li>
+                      <li><code>animation-iteration-count</code>: How many times to repeat</li>
+                      <li><code>animation-direction</code>: Normal, reverse, alternate</li>
+                      <li><code>animation-fill-mode</code>: Styles before/after animation</li>
+                    </ul>
+                    <h4>Keyframes:</h4>
+                    <ul>
+                      <li>Define animation steps with percentages</li>
+                      <li>0% = start, 100% = end</li>
+                      <li>Can have multiple intermediate steps</li>
+                    </ul>
+                  </div>
+                  <pre id="code-animations" class="code" aria-hidden="false"><code class="language-css">/* Keyframe animation */
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Apply animations */
+.slide-in {
+  animation: slideIn 1s ease-out;
+}
+
+.bounce {
+  animation: bounce 2s infinite;
+}
+
+.pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Animation shorthand */
+.complex-animation {
+  animation: slideIn 2s ease-in-out 0.5s infinite alternate;
+}</code></pre>
+                  <div id="preview-animations" class="preview" aria-hidden="true">
+                    <style>
+                      @keyframes slideInDemo {
+                        0% {
+                          transform: translateX(-100%);
+                          opacity: 0;
+                        }
+                        100% {
+                          transform: translateX(0);
+                          opacity: 1;
+                        }
+                      }
+                      @keyframes bounceDemo {
+                        0%, 20%, 50%, 80%, 100% {
+                          transform: translateY(0);
+                        }
+                        40% {
+                          transform: translateY(-20px);
+                        }
+                        60% {
+                          transform: translateY(-10px);
+                        }
+                      }
+                      @keyframes pulseDemo {
+                        0% {
+                          transform: scale(1);
+                        }
+                        50% {
+                          transform: scale(1.1);
+                        }
+                        100% {
+                          transform: scale(1);
+                        }
+                      }
+                      .anim-demo {
+                        width: 80px;
+                        height: 80px;
+                        background: #007bff;
+                        color: white;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 20px;
+                        border-radius: 8px;
+                        font-weight: bold;
+                      }
+                      .slide-demo {
+                        animation: slideInDemo 2s ease-out;
+                      }
+                      .bounce-demo {
+                        animation: bounceDemo 2s infinite;
+                      }
+                      .pulse-demo {
+                        animation: pulseDemo 1.5s ease-in-out infinite;
+                      }
+                    </style>
+                    <div style="display: flex; flex-wrap: wrap; align-items: center;">
+                      <div class="anim-demo slide-demo">Slide</div>
+                      <div class="anim-demo bounce-demo">Bounce</div>
+                      <div class="anim-demo pulse-demo">Pulse</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="responsive" class="topic">
+            <h2><button class="collapse-toggle" aria-expanded="true" aria-controls="content-responsive">Responsive Design</button></h2>
+            <div id="content-responsive" class="topic-content">
+              <p>Responsive design ensures websites work well on all devices by adapting layout, typography, and interactions.</p>
+              
+              <div class="example">
+                <div class="example-toolbar">
+                  <button class="btn btn-small toggle-expl" data-target="#expl-responsive"><i class="fas fa-info-circle"></i> Show Explanation</button>
+                  <button class="btn btn-small toggle-code" data-target="#code-responsive"><i class="fas fa-code"></i> Show Code</button>
+                  <button class="btn btn-small toggle-preview" data-target="#preview-responsive"><i class="fas fa-eye"></i> Show Result</button>
+                </div>
+                <div class="example-body two-col">
+                  <div id="expl-responsive" class="explanation" aria-hidden="false">
+                    <h4>Responsive Principles:</h4>
+                    <ul>
+                      <li><strong>Mobile-first:</strong> Design for mobile, enhance for larger screens</li>
+                      <li><strong>Flexible layouts:</strong> Use relative units (%, em, rem)</li>
+                      <li><strong>Flexible images:</strong> max-width: 100%, height: auto</li>
+                      <li><strong>Media queries:</strong> Adapt styles for different screen sizes</li>
+                    </ul>
+                    <h4>Key Techniques:</h4>
+                    <ul>
+                      <li><code>viewport</code> meta tag for mobile scaling</li>
+                      <li>Flexible grid systems (Flexbox, Grid)</li>
+                      <li>Responsive typography (clamp, vw units)</li>
+                      <li>Touch-friendly interface elements</li>
+                    </ul>
+                  </div>
+                  <pre id="code-responsive" class="code" aria-hidden="false"><code class="language-css">/* Mobile-first responsive design */
+.container {
+  width: 100%;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+/* Flexible typography */
+h1 {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  line-height: 1.2;
+}
+
+p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: 1.6;
+}
+
+/* Flexible images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive grid */
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .container {
+    max-width: 750px;
+    padding: 2rem;
+  }
+  
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+  }
+  
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Touch-friendly buttons */
+@media (hover: none) {
+  .button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}</code></pre>
+                  <div id="preview-responsive" class="preview" aria-hidden="true">
+                    <style>
+                      .responsive-demo {
+                        border: 2px solid #333;
+                        padding: 1rem;
+                        margin: 1rem 0;
+                        background: #f8f9fa;
+                      }
+                      .responsive-grid {
+                        display: grid;
+                        gap: 1rem;
+                        grid-template-columns: 1fr;
+                      }
+                      .responsive-item {
+                        background: #e9ecef;
+                        padding: 1rem;
+                        text-align: center;
+                        border-radius: 4px;
+                      }
+                      @media (min-width: 600px) {
+                        .responsive-grid {
+                          grid-template-columns: repeat(2, 1fr);
+                        }
+                      }
+                      @media (min-width: 900px) {
+                        .responsive-grid {
+                          grid-template-columns: repeat(3, 1fr);
+                        }
+                      }
+                    </style>
+                    <div class="responsive-demo">
+                      <h4>Responsive Grid Demo</h4>
+                      <p>This grid adapts to screen size:</p>
+                      <div class="responsive-grid">
+                        <div class="responsive-item">Item 1</div>
+                        <div class="responsive-item">Item 2</div>
+                        <div class="responsive-item">Item 3</div>
+                        <div class="responsive-item">Item 4</div>
+                        <div class="responsive-item">Item 5</div>
+                        <div class="responsive-item">Item 6</div>
+                      </div>
+                      <p><small>Resize your browser window to see the responsive behavior!</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <nav class="topic-nav-bottom" aria-label="Topic pagination">
+            <a class="btn btn-outline" href="html.html"><i class="fas fa-arrow-left"></i> HTML Topics</a>
+            <a class="btn btn-outline" href="javascript.html">JavaScript Topics <i class="fas fa-arrow-right"></i></a>
+          </nav>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p><i class="fas fa-code"></i> © <span id="year"></span> WebBasics</p>
+      </div>
+    </footer>
+
+    <script src="./js/main.js" defer></script>
+  </body>
+  </html>
+
+
